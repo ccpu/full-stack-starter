@@ -9,8 +9,10 @@
     "**/.cache/*",
     "**/.expo/*",
     "**/.nest/*",
+    "**/build/*",
     "**/babel.config.js",
     "**/metro.config.js",
+    "**/zip.js",
     "coverage"
   ]
 }

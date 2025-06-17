@@ -1,0 +1,57 @@
+{
+  "name": "@acme/extension",
+  "displayName": "extension",
+  "version": "0.0.0",
+  "private": true,
+  "author": "**",
+  "description": "",
+  "type": "module",
+  "license": "MIT",
+  "keywords": [
+    "chrome-extension",
+    "react",
+    "vite",
+    "create-chrome-ext"
+  ],
+  "engines": {
+    "node": ">=14.18.0"
+  },
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo build node_modules",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "zip": "pnpm build && node src/zip.js"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "@acme/eslint-config": "workspace:*",
+    "@acme/prettier-config": "workspace:*",
+    "@acme/tailwind-config": "workspace:*",
+    "@acme/tsconfig": "workspace:*",
+    "@crxjs/vite-plugin": "^2.0.0-beta.26",
+    "@types/chrome": "^0.0.246",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@vitejs/plugin-react": "^4.1.0",
+    "autoprefixer": "^10.4.21",
+    "eslint": "catalog:",
+    "gulp": "^5.0.0",
+    "gulp-zip": "^6.0.0",
+    "postcss": "catalog:",
+    "prettier": "catalog:",
+    "tailwindcss": "catalog:",
+    "typescript": "catalog:",
+    "vite": "^5.4.10"
+  },
+  "prettier": "@acme/prettier-config",
+  "sideEffects": false
+}

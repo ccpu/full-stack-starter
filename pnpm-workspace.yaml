@@ -10,6 +10,7 @@ catalog:
   react: 19.0.0
   react-dom: 19.0.0
   zod: ^3.25.49
+  postcss: ^8.5.4
   '@types/react': ^19.1.6
   '@types/react-dom': ^19.1.5
   '@types/node': ^22.15.29
