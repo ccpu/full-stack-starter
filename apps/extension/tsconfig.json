@@ -1,31 +1,14 @@
 {
-  "extends": [
-    "@acme/tsconfig/base.json",
-    "@acme/tsconfig/nativewind.json"
-  ],
+  "extends": ["@acme/tsconfig/base.json", "@acme/tsconfig/nativewind.json"],
   "compilerOptions": {
-    "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "ESNext"
-    ],
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "~/*": [
-        "./src/*"
-      ]
+      "~/*": ["./src/*"]
     },
-    "types": [
-      "chrome"
-    ]
+    "types": ["chrome"]
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules",
-    "build",
-    "src/zip.js"
-  ]
+  "include": ["src"],
+  "exclude": ["node_modules", "build", "src/zip.js"]
 }
