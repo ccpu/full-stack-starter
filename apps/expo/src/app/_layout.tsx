@@ -9,7 +9,7 @@ import "../styles.css";
 // It wraps your pages with the providers they need
 export default function RootLayout() {
   return (
-    <View className="flex-1 bg-background">
+    <View className="bg- flex-1">
       <StatusBar />
       <Stack
         screenOptions={{

@@ -23,14 +23,12 @@ export const Popup = () => {
   }, [count]);
 
   return (
-    <div className="w-96 bg-white p-6">
+    <div className="w-96 p-6">
       <div className="text-center">
-        <h3 className="mb-4 text-lg font-semibold text-gray-800">
-          Extension Popup
-        </h3>
+        <h3 className="mb-4 text-lg font-semibold">Extension Popup</h3>
 
         <div className="mb-6">
-          <div className="mb-2 text-2xl font-bold text-blue-600">{count}</div>
+          <div className="mb-2 text-2xl font-bold">{count}</div>
 
           <div className="flex justify-center gap-2">
             <Button

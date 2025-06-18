@@ -1,20 +1,19 @@
-import "../global.css";
-
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import { ThemeProvider, ThemeToggle } from "@acme/ui";
+import { ThemeToggle } from "@acme/ui";
 
+import { TailWindProvider } from "../components/TailWindProvider";
 import { NewTab } from "./NewTab";
 
 const appElement = document.getElementById("app");
 if (appElement) {
   ReactDOM.createRoot(appElement).render(
     <React.StrictMode>
-      <ThemeProvider>
+      <TailWindProvider>
         <ThemeToggle />
         <NewTab />
-      </ThemeProvider>
+      </TailWindProvider>
     </React.StrictMode>,
   );
 }

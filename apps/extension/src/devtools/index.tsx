@@ -1,15 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+import { TailWindProvider } from "~/components/TailWindProvider";
 import { DevTools } from "./DevTools";
-
-import "./index.css";
 
 const appElement = document.getElementById("app");
 if (appElement) {
   ReactDOM.createRoot(appElement).render(
     <React.StrictMode>
-      <DevTools />
+      <TailWindProvider>
+        <DevTools />
+      </TailWindProvider>
     </React.StrictMode>,
   );
 }

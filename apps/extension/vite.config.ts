@@ -27,7 +27,7 @@ export default defineConfig(({ mode }) => {
         "react-native-svg":
           "react-native-svg/lib/commonjs/ReactNativeSVG.web.js",
         "expo-router": path.resolve(__dirname, "./src/stubs/expo-router.js"),
-        "~": path.resolve(__dirname, "../../packages/app"),
+        "~": path.resolve(__dirname, "./src"),
       },
     },
     plugins: [
