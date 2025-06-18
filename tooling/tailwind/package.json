@@ -6,7 +6,8 @@
   "exports": {
     "./native": "./native.ts",
     "./web": "./web.ts",
-    "./theme.css": "./theme.css"
+    "./theme.css": "./theme.css",
+    "./theme.web.css": "./theme.web.css"
   },
   "license": "MIT",
   "scripts": {
