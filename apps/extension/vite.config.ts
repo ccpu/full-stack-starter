@@ -1,6 +1,8 @@
+import * as path from "path";
 import { crx } from "@crxjs/vite-plugin";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
+import reactNativeWeb from "vite-plugin-react-native-web";
 
 import manifest from "./src/manifest";
 
@@ -15,18 +17,57 @@ export default defineConfig(({ mode }) => {
           chunkFileNames: "assets/chunk-[hash].js",
         },
       },
+      commonjsOptions: {
+        transformMixedEsModules: true,
+      },
     },
     resolve: {
       alias: {
-        "~": new URL("./src", import.meta.url).pathname,
+        "react-native": "react-native-web",
+        "react-native-svg":
+          "react-native-svg/lib/commonjs/ReactNativeSVG.web.js",
+        "expo-router": path.resolve(__dirname, "./src/stubs/expo-router.js"),
+        "~": path.resolve(__dirname, "../../packages/app"),
       },
     },
-    define: {
-      __DEV__: JSON.stringify(mode === "development"),
+    plugins: [
+      react({
+        include: /\.(t|j)sx?$|\.mjs$/,
+        babel: {
+          plugins: [
+            [
+              "@babel/plugin-transform-react-jsx",
+              {
+                runtime: "automatic",
+                importSource: "nativewind",
+              },
+            ],
+          ],
+        },
+      }),
+      reactNativeWeb(),
+      crx({ manifest }),
+    ],
+    optimizeDeps: {
+      force: true,
+      include: ["react-native-web"],
+      esbuildOptions: {
+        loader: {
+          ".mjs": "jsx",
+        },
+      },
     },
-    plugins: [crx({ manifest }), react()],
-    legacy: {
-      skipWebSocketTokenCheck: true,
+    server: {
+      port: 5173,
+      strictPort: true,
+      hmr: {
+        port: 5173,
+        host: "localhost",
+        clientPort: 5173,
+      },
+      watch: {
+        usePolling: true,
+      },
     },
   };
 });

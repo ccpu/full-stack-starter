@@ -1,15 +1,20 @@
+import "../global.css";
+
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import { NewTab } from "./NewTab";
+import { ThemeProvider, ThemeToggle } from "@acme/ui";
 
-import "./index.css";
+import { NewTab } from "./NewTab";
 
 const appElement = document.getElementById("app");
 if (appElement) {
   ReactDOM.createRoot(appElement).render(
     <React.StrictMode>
-      <NewTab />
+      <ThemeProvider>
+        <ThemeToggle />
+        <NewTab />
+      </ThemeProvider>
     </React.StrictMode>,
   );
 }

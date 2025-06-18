@@ -2,6 +2,12 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+/* React Native Web base styles */
+body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
 /* Extension-specific styles */
 body {
   margin: 0;
