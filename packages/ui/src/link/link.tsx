@@ -35,7 +35,7 @@ export const Link = forwardRef<React.ElementRef<typeof Pressable>, LinkProps>(
       <Pressable
         ref={ref}
         className={className}
-        onPress={() => router.push(href)}
+        onPress={() => router.push(href as Parameters<typeof router.push>[0])}
         {...props}
       >
         {typeof children === "string" ? (
