@@ -33,16 +33,9 @@ export default defineConfig(({ mode }) => {
     plugins: [
       react({
         include: /\.(t|j)sx?$|\.mjs$/,
+        jsxImportSource: "nativewind",
         babel: {
-          plugins: [
-            [
-              "@babel/plugin-transform-react-jsx",
-              {
-                runtime: "automatic",
-                importSource: "nativewind",
-              },
-            ],
-          ],
+          presets: ["nativewind/babel"],
         },
       }),
       reactNativeWeb(),
@@ -58,12 +51,12 @@ export default defineConfig(({ mode }) => {
       },
     },
     server: {
-      port: 5173,
+      port: 5174,
       strictPort: true,
       hmr: {
-        port: 5173,
+        port: 5174,
         host: "localhost",
-        clientPort: 5173,
+        clientPort: 5174,
       },
       watch: {
         usePolling: true,

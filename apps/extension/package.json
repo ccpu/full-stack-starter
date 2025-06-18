@@ -30,12 +30,9 @@
   "dependencies": {
     "@acme/app": "workspace:*",
     "clsx": "^2.1.1",
-    "nativewind": "~4.1.23",
+    "nativewind": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "react-native": "0.79.3",
-    "react-native-web": "^0.20.0",
-    "tailwind-merge": "^3.3.1",
     "vite-plugin-react-native-web": "^2.1.1"
   },
   "devDependencies": {
@@ -44,11 +41,7 @@
     "@acme/tailwind-config": "workspace:*",
     "@acme/tsconfig": "workspace:*",
     "@acme/ui": "workspace:*",
-    "@babel/core": "^7.27.4",
-    "@babel/plugin-proposal-export-namespace-from": "^7.18.9",
-    "@babel/preset-env": "^7.27.2",
-    "@babel/preset-react": "^7.27.1",
-    "@babel/preset-typescript": "^7.27.1",
+    "@babel/core": "catalog:",
     "@crxjs/vite-plugin": "^2.0.0-beta.26",
     "@types/chrome": "^0.0.246",
     "@types/react": "catalog:",

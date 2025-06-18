@@ -35,7 +35,9 @@
   },
   "devDependencies": {
     "@acme/prettier-config": "workspace:*",
+    "@babel/core": "catalog:",
     "@turbo/gen": "^2.5.4",
+    "autoprefixer": "catalog:",
     "prettier": "catalog:",
     "tsx": "^4.20.3",
     "turbo": "^2.5.4",
