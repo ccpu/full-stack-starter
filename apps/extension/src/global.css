@@ -1,8 +1,8 @@
 @import "@acme/tailwind-config/theme.web.css";
 
-
 /* React Native Web base styles */
-body, #root {
+body,
+#root {
   height: 100%;
   overflow: hidden;
 }

@@ -44,6 +44,20 @@ const config = {
         parser: "babel",
       },
     },
+    {
+      files: ["*.json", "tsconfig*.json"],
+      options: {
+        printWidth: 120,
+        tabWidth: 2,
+        useTabs: false,
+        semi: false,
+        singleQuote: false,
+        trailingComma: "none",
+        bracketSpacing: true,
+        bracketSameLine: false,
+        arrowParens: "avoid",
+      },
+    },
   ],
 };
 

@@ -1,7 +1,7 @@
 // Stub for expo-router during development
 // This prevents Vite from trying to process the actual expo-router files
 
-import type { ReactNode } from 'react';
+import type { ReactNode } from "react";
 
 export const router = {
   push: (href: string) => {
@@ -28,7 +28,13 @@ export const router = {
 };
 
 // Mock Stack component for cases where it might be imported
-export const Stack = ({ children, ..._props }: { children: ReactNode; [key: string]: unknown }) => {
+export const Stack = ({
+  children,
+  ..._props
+}: {
+  children: ReactNode;
+  [key: string]: unknown;
+}) => {
   console.warn(
     `[expo-router stub] Stack component rendered with props:`,
     _props,
@@ -37,7 +43,15 @@ export const Stack = ({ children, ..._props }: { children: ReactNode; [key: stri
 };
 
 // Mock other common exports that might be used
-export const Link = ({ children, href, ..._props }: { children: ReactNode; href: string; [key: string]: unknown }) => {
+export const Link = ({
+  children,
+  href,
+  ..._props
+}: {
+  children: ReactNode;
+  href: string;
+  [key: string]: unknown;
+}) => {
   console.warn(`[expo-router stub] Link component rendered with href: ${href}`);
   return children;
 };

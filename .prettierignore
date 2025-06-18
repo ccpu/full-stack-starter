@@ -1,0 +1,17 @@
+# Ignore TypeScript config files to preserve custom formatting
+**/tsconfig*.json
+
+# Common ignore patterns
+node_modules/
+dist/
+build/
+coverage/
+.turbo/
+.next/
+.expo/
+.cache/
+
+# Lock files
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
