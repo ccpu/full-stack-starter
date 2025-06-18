@@ -6,15 +6,8 @@
   "author": "**",
   "description": "",
   "type": "module",
-  "license": "MIT",
-  "keywords": [
-    "chrome-extension",
-    "react",
-    "vite",
-    "create-chrome-ext"
-  ],
   "engines": {
-    "node": ">=14.18.0"
+    "node": ">=20.0.0"
   },
   "scripts": {
     "clean": "git clean -xdf .cache .turbo build node_modules",
@@ -42,16 +35,16 @@
     "@acme/tsconfig": "workspace:*",
     "@acme/ui": "workspace:*",
     "@babel/core": "catalog:",
-    "@crxjs/vite-plugin": "^2.0.0-beta.26",
-    "@types/chrome": "^0.0.246",
+    "@crxjs/vite-plugin": "^2.0.2",
+    "@types/chrome": "^0.0.326",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@types/react-native-web": "^0.19.1",
-    "@vitejs/plugin-react": "^4.1.0",
+    "@vitejs/plugin-react": "^4.5.2",
     "autoprefixer": "^10.4.21",
     "eslint": "catalog:",
-    "gulp": "^5.0.0",
-    "gulp-zip": "^6.0.0",
+    "gulp": "^5.0.1",
+    "gulp-zip": "^6.1.0",
     "postcss": "catalog:",
     "prettier": "catalog:",
     "tailwindcss": "catalog:",
