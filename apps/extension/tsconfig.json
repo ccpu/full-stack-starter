@@ -11,11 +11,6 @@
     ],
     "jsx": "react-jsx",
     "baseUrl": ".",
-    "paths": {
-      "~/*": [
-        "./src/*"
-      ]
-    },
     "types": [
       "chrome"
     ]

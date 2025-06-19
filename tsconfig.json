@@ -4,20 +4,8 @@
     "./tooling/typescript/nativewind.json"
   ],
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "."
   },
-  "references": [
-    { "path": "./apps/expo" },
-    { "path": "./apps/extension" },
-    { "path": "./apps/next" },
-    { "path": "./packages/app" },
-    { "path": "./packages/ui" },
-    { "path": "./packages/utils" },
-    { "path": "./tooling/eslint" },
-    { "path": "./tooling/prettier" },
-    { "path": "./tooling/tailwind" },
-    { "path": "./tooling/typescript" }
-  ],
   "exclude": [
     "node_modules",
     "**/node_modules/*",
