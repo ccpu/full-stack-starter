@@ -8,6 +8,8 @@
   },
   "license": "MIT",
   "scripts": {
+    "clean": "git clean -xdf .cache .turbo node_modules",
+    "clean:install": "pnpm clean && pnpm install",
     "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false",
     "build": "nest build",
