@@ -3,7 +3,7 @@ const { readFileSync } = require("node:fs");
 const { parse } = require("yaml");
 
 // Utility function to convert string to kebab-case
-function toKebabCase(str) {
+function toKebabCase(str: string): string {
   return str
     .replace(/([a-z])([A-Z])/g, "$1-$2") // camelCase to kebab-case
     .replace(/[\s_]+/g, "-") // spaces and underscores to hyphens
@@ -14,15 +14,15 @@ function toKebabCase(str) {
 }
 
 // Function to get workspace folders from pnpm-workspace.yaml
-function getWorkspaceFolders() {
+function getWorkspaceFolders(): string[] {
   try {
     const workspaceContent = readFileSync("pnpm-workspace.yaml", "utf8");
     const workspace = parse(workspaceContent);
 
     // Extract base folder names from patterns like "apps/*", "packages/*"
     return workspace.packages
-      .filter((pkg) => pkg.endsWith("/*"))
-      .map((pkg) => pkg.replace("/*", ""))
+      .filter((pkg: string) => pkg.endsWith("/*"))
+      .map((pkg: string) => pkg.replace("/*", ""))
       .sort();
   } catch (error) {
     console.warn("Could not read pnpm-workspace.yaml, using default folders");
@@ -30,7 +30,7 @@ function getWorkspaceFolders() {
   }
 }
 
-module.exports = function generator(plop) {
+module.exports = function generator(plop: any) {
   const workspaceFolders = getWorkspaceFolders();
 
   plop.setGenerator("init", {
@@ -48,13 +48,13 @@ module.exports = function generator(plop) {
         type: "input",
         name: "name",
         message: "What is the name of the package?",
-        validate: (input) => {
+        validate: (input: string) => {
           if (!input || input.trim().length === 0) {
             return "Package name is required";
           }
           return true;
         },
-        filter: (input) => {
+        filter: (input: string) => {
           // Convert to kebab-case and remove any scope prefix
           const cleaned = input.replace(/^@[^/]+\//, "");
           return toKebabCase(cleaned);
@@ -69,7 +69,7 @@ module.exports = function generator(plop) {
       },
     ],
     actions: [
-      (answers) => {
+      (answers: any) => {
         if (answers.name) {
           // Ensure name is in kebab-case
           const kebabName = toKebabCase(answers.name);
@@ -105,13 +105,13 @@ module.exports = function generator(plop) {
       {
         type: "modify",
         path: "{{ workspace }}/{{ name }}/package.json",
-        async transform(content, answers) {
+        async transform(content: string, answers: any) {
           if (answers.deps && answers.deps.trim()) {
             const pkg = JSON.parse(content);
             for (const dep of answers.deps.split(" ").filter(Boolean)) {
               try {
                 const response = await fetch(
-                  `https://registry.npmjs.org/-/package/${dep}/dist-tags`
+                  `https://registry.npmjs.org/-/package/${dep}/dist-tags`,
                 );
                 const json = await response.json();
                 const version = json.latest;
@@ -126,7 +126,7 @@ module.exports = function generator(plop) {
           return content;
         },
       },
-      async (answers) => {
+      async (answers: any) => {
         /**
          * Install deps and format everything
          */
@@ -135,12 +135,12 @@ module.exports = function generator(plop) {
             execSync("pnpm i", { stdio: "inherit" });
             execSync(
               `pnpm prettier --write ${answers.workspace}/${answers.name}/** --list-different`,
-              { stdio: "inherit" }
+              { stdio: "inherit" },
             );
             return `Package '${answers.name}' scaffolded successfully in '${answers.workspace}' workspace!`;
           } catch (error) {
             console.warn(
-              "Warning: Failed to install dependencies or format files"
+              "Warning: Failed to install dependencies or format files",
             );
             return `Package '${answers.name}' scaffolded in '${answers.workspace}' workspace (with warnings)`;
           }

@@ -23,3 +23,7 @@ If a user reports TypeScript errors related to `className` props in React Native
 3. Restart the TypeScript server if changes don't take effect immediately.
 
 Note: The monorepo has a centralized NativeWind TypeScript configuration in `tooling/typescript/nativewind.json` that should be extended by any package using NativeWind.
+
+## Package Manager
+
+This project uses **pnpm** as the package manager. You must always use `pnpm` (not `npm` or `yarn`) when installing or managing packages in this repository.
