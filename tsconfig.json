@@ -1,8 +1,5 @@
 {
-  "extends": [
-    "./tooling/typescript/base.json",
-    "./tooling/typescript/nativewind.json"
-  ],
+  "extends": "./tooling/typescript/base.json",
   "compilerOptions": {
     "baseUrl": "."
   },
