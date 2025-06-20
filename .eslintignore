@@ -1,0 +1,2 @@
+# Exclude auto-generated API client from linting
+api/client/src/

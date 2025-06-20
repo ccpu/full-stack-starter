@@ -2,10 +2,8 @@ import { execSync } from "child_process";
 import fs from "fs";
 import path from "path";
 import chalk from "chalk";
-import { kebabCase } from "change-case";
 import { glob } from "glob";
 
-import type { Swagger } from "./types/swagger.js";
 import {
   getPackageJson,
   isPackageInstalledGlobally,
@@ -26,12 +24,7 @@ export const generateClientApi = (
     return;
   }
 
-  const fileContent = fs.readFileSync(swaggerFilePath, { encoding: "utf8" });
-
-  const swaggerData = JSON.parse(fileContent) as Swagger;
-
-  const clientApiName = kebabCase(swaggerData.info.title);
-  const clientApiDir = resolveFromRoot(`api/client/${clientApiName}`);
+  const clientApiDir = resolveFromRoot(`api/client`);
   const clientApiSwaggerFilePath = path.join(clientApiDir, "swagger.json");
 
   if (
@@ -46,10 +39,9 @@ export const generateClientApi = (
   console.info("Generating client api...");
   console.info(`File location: '${srcSwaggerJsonFile}'`);
 
-  const clientApiSourceDir = path.join(clientApiDir, "src");
-  const clientApiSourceDirIndexFile = path.join(clientApiSourceDir, "index.ts");
+  const clientApiSourceDir = clientApiDir;
 
-  const packageName = `@acme/api-client-${clientApiName}`;
+  const packageName = `@acme/api-client`;
   const isClientApiDirExist = fs.existsSync(clientApiDir);
 
   if (isClientApiDirExist) {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export interface SwaggerInfo {
   title: string;
   description: string;
@@ -5,15 +6,16 @@ export interface SwaggerInfo {
   contact?: Record<string, any>;
 }
 
-export interface SwaggerPath {
-  [method: string]: {
+export type SwaggerPath = Record<
+  string,
+  {
     operationId?: string;
     parameters?: any[];
     responses?: Record<string, any>;
     summary?: string;
     tags?: string[];
-  };
-}
+  }
+>;
 
 export interface Swagger {
   openapi: string;
