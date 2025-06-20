@@ -1,16 +1,14 @@
 {
-  "extends": [
-    "../../tooling/typescript/internal-package.json"
-  ],
+  "extends": "@acme/tsconfig/base.json",
   "compilerOptions": {
-    "outDir": "dist",
-    "rootDir": "src",
-    "declaration": true,
-    "declarationMap": true,
-    "emitDeclarationOnly": false,
-    "composite": true
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "noEmit": true
   },
   "include": [
-    "src"
+    "**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }
