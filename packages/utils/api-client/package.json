@@ -16,9 +16,9 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
+    "chalk": "^5.4.1",
     "change-case": "^5.4.4",
     "glob": "^11.0.3",
-    "chalk": "^5.4.1",
     "rimraf": "^6.0.1"
   },
   "devDependencies": {
