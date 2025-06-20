@@ -1,3 +1,5 @@
+import { writeFileSync } from "fs";
+import { join } from "path";
 import { NestFactory } from "@nestjs/core";
 import { FastifyAdapter } from "@nestjs/platform-fastify";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
@@ -17,10 +19,20 @@ async function bootstrap() {
     .setVersion("1.0")
     .build();
   const document = SwaggerModule.createDocument(app, config);
+
+  // Save Swagger JSON to root directory
+  const swaggerJson = JSON.stringify(document, null, 2);
+  const rootDir = join(__dirname, "..");
+  const swaggerPath = join(rootDir, "swagger.json");
+  writeFileSync(swaggerPath, swaggerJson);
+  console.log(`\x1b[36mSwagger JSON saved to: ${swaggerPath}\x1b[0m`);
+
+  console.log(swaggerPath);
+
   // Serve Swagger at /docs instead of /api
   SwaggerModule.setup("docs", app, document);
 
-  const port = process.env.PORT ? Number(process.env.PORT) : 3000;
+  const port = process.env.PORT ? Number(process.env.PORT) : 49252;
   const host = "0.0.0.0";
 
   await app.listen(port, host);
