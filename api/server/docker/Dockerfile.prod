@@ -1,0 +1,112 @@
+# ---------- Base layer ----------
+FROM node:22-alpine AS base
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
+
+# ---------- Dependencies layer ----------
+FROM base AS deps
+WORKDIR /usr/src/app
+COPY pnpm-lock.yaml package.json pnpm-workspace.yaml ./
+COPY .npmrc.prod ./.npmrc
+COPY api/server/package.json ./api/server/
+# Security: Use secret mount to avoid exposing credentials in build logs
+# Ensure .npmrc file contains only registry config, not hardcoded tokens
+RUN --mount=type=secret,id=npmrc,target=/root/.npmrc \
+  pnpm install --frozen-lockfile
+
+# ---------- Build layer ----------
+FROM deps AS build
+WORKDIR /usr/src/app
+COPY api/server ./api/server/
+RUN pnpm --filter=@acme/server build
+
+# ---------- Production dependencies ----------
+FROM base AS prod-deps
+WORKDIR /usr/src/app
+
+# Create a clean package.json with only production dependencies
+COPY api/server/package.json ./temp-package.json
+RUN node -e "\
+  const pkg = require('./temp-package.json'); \
+  const prodPkg = { \
+  name: pkg.name, \
+  version: pkg.version, \
+  dependencies: pkg.dependencies \
+  }; \
+  require('fs').writeFileSync('./package.json', JSON.stringify(prodPkg, null, 2));"
+
+# Install only production dependencies without workspace
+RUN corepack enable
+# Security: Use secret mount to avoid exposing credentials in build logs
+RUN --mount=type=secret,id=npmrc,target=/root/.npmrc \
+  pnpm install --prod --no-optional
+
+# ---------- Production layer ----------
+FROM node:22-alpine AS production
+
+# Add security labels
+LABEL security.scan="enabled"
+# LABEL maintainer="your-team@company.com"
+LABEL security.non-root="true"
+LABEL security.updated="true"
+LABEL security.hardened="true"
+
+# Set NODE_ENV for runtime
+ENV NODE_ENV=production
+
+# Security: Update packages and remove cache
+RUN apk update --no-cache && apk upgrade --no-cache && rm -rf /var/cache/apk/*
+
+# Security: Create non-root user with specific UID/GID
+RUN addgroup --system --gid 1001 nodejs && \
+  adduser --system --uid 1001 --ingroup nodejs nestjs
+
+# Runtime security: Prevent privilege escalation and shell access
+RUN echo 'nestjs:x:1001:1001::/usr/src/app:/sbin/nologin' >> /etc/passwd
+
+# Set working directory
+WORKDIR /usr/src/app
+RUN chown nestjs:nodejs /usr/src/app
+
+USER nestjs
+
+# Copy production dependencies from prod-deps stage
+COPY --chown=nestjs:nodejs --chmod=755 --from=prod-deps /usr/src/app/node_modules ./node_modules
+
+# Copy built application
+COPY --chown=nestjs:nodejs --chmod=755 --from=build /usr/src/app/api/server/dist ./api/server/dist
+
+# Runtime security: Remove package managers (not needed since we don't have pnpm in this stage)
+# File system permissions: Make application directory read-only
+RUN chmod -R 555 /usr/src/app/api/server/dist
+
+# Create necessary directories with proper permissions for logs/temp files if needed
+# RUN mkdir -p /tmp/app-logs && chown nestjs:nodejs /tmp/app-logs
+
+# Copy entrypoint script
+# COPY --chown=nestjs:nodejs --chmod=755 docker-entrypoint.sh /usr/local/bin/
+# RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
+# # Set entrypoint and non-root user
+# ENTRYPOINT ["docker-entrypoint.sh"]
+
+# Set working directory for the app
+WORKDIR /usr/src/app/api/server
+
+# Security: Port intentionally not exposed in Dockerfile for better security
+# Port should be exposed at runtime via docker run -p or docker-compose
+# EXPOSE 49252
+
+# Security: Add healthcheck (optional but recommended)
+# HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+#   CMD node healthcheck.js || exit 1
+
+# Default command
+CMD ["node", "dist/main.js"]
+
+# Security runtime recommendations (add these flags when running the container):
+# --cap-drop=ALL --security-opt=no-new-privileges --read-only
+# --tmpfs /tmp --tmpfs /var/tmp (if temporary files are needed)
+# Example: docker run --cap-drop=ALL --security-opt=no-new-privileges --read-only \
+#          --tmpfs /tmp --tmpfs /var/tmp -p 3000:49252 your-image

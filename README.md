@@ -102,6 +102,20 @@ Deploying your Expo application works slightly differently compared to Next.js o
 
 8. Done! Now that you have created your production build, submitted it to the stores, and installed EAS Update, you are ready for anything!
 
+## 🚢 Docker: Build & Run the API Server (NestJS)
+
+You can build and run the NestJS API server using Docker:
+
+```bash
+# Build the Docker image (from project root)
+docker build -f api/server/docker/Dockerfile.prod -t acme-server:latest .
+
+# Run the Docker container
+docker run -p 3000:3000 -e PORT=3000 acme-server:latest
+```
+
+> **For detailed Docker instructions and security notes, see [`api/server/docker/README.md`](api/server/docker/README.md).**
+
 ## 📚 References
 
 ## 🙏 Acknowledgements and Special Thanks

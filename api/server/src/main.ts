@@ -12,25 +12,26 @@ async function bootstrap() {
   // Set global prefix for all routes
   app.setGlobalPrefix("api");
 
-  // Swagger configuration
-  const config = new DocumentBuilder()
-    .setTitle("API Documentation")
-    .setDescription("The API description")
-    .setVersion("1.0")
-    .build();
-  const document = SwaggerModule.createDocument(app, config);
+  if (process.env.NODE_ENV !== "production") {
+    // Swagger configuration
+    const config = new DocumentBuilder()
+      .setTitle("API Documentation")
+      .setDescription("The API description")
+      .setVersion("1.0")
+      .build();
+    const document = SwaggerModule.createDocument(app, config);
 
-  // Save Swagger JSON to root directory
-  const swaggerJson = JSON.stringify(document, null, 2);
-  const rootDir = join(__dirname, "..");
-  const swaggerPath = join(rootDir, "swagger.json");
-  writeFileSync(swaggerPath, swaggerJson);
-  console.log(`\x1b[36mSwagger JSON saved to: ${swaggerPath}\x1b[0m`);
+    // Save Swagger JSON to root directory
+    const swaggerJson = JSON.stringify(document, null, 2);
+    const rootDir = join(__dirname, "..");
+    const swaggerPath = join(rootDir, "swagger.json");
+    writeFileSync(swaggerPath, swaggerJson);
+    console.log(`\x1b[36mSwagger JSON saved to: ${swaggerPath}\x1b[0m`);
+    console.log(swaggerPath);
 
-  console.log(swaggerPath);
-
-  // Serve Swagger at /docs instead of /api
-  SwaggerModule.setup("docs", app, document);
+    // Serve Swagger at /docs instead of /api
+    SwaggerModule.setup("docs", app, document);
+  }
 
   const port = process.env.PORT ? Number(process.env.PORT) : 49252;
   const host = "0.0.0.0";
@@ -40,9 +41,11 @@ async function bootstrap() {
   console.log(
     `\x1b[32m│ Application: http://localhost:${port}/api     │\x1b[0m`,
   );
-  console.log(
-    `\x1b[32m│     Swagger: http://localhost:${port}/docs    │\x1b[0m`,
-  );
+  if (process.env.NODE_ENV !== "production") {
+    console.log(
+      `\x1b[32m│     Swagger: http://localhost:${port}/docs    │\x1b[0m`,
+    );
+  }
   console.log("\x1b[32m" + "└" + "─".repeat(44) + "┘\x1b[0m");
 }
 

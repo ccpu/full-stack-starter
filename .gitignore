@@ -41,6 +41,9 @@ yarn-error.log*
 .env
 .env*.local
 
+# npmrc secrets (Docker build authentication)
+.npmrc.secrets
+
 # vercel
 .vercel
 
