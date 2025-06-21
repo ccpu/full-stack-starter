@@ -18,6 +18,14 @@
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false,
     "resolveJsonModule": true,
-    "esModuleInterop": true // recommended for JSON imports
-  }
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "allowJs": false,
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "config/**/*.cjs"
+  ]
 }

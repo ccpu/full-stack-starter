@@ -4,23 +4,22 @@ import { NestFactory } from "@nestjs/core";
 import { FastifyAdapter } from "@nestjs/platform-fastify";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 
+import config from "../config/defaults.cjs";
 import { AppModule } from "./app.module";
-import { AppConfig } from "./config/app.config";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, new FastifyAdapter());
 
   // Set global prefix for all routes
   app.setGlobalPrefix("api");
-
   if (process.env.NODE_ENV !== "production") {
     // Swagger configuration
-    const config = new DocumentBuilder()
+    const swaggerConfig = new DocumentBuilder()
       .setTitle("API Documentation")
       .setDescription("The API description")
       .setVersion("1.0")
       .build();
-    const document = SwaggerModule.createDocument(app, config);
+    const document = SwaggerModule.createDocument(app, swaggerConfig);
 
     // Save Swagger JSON to root directory
     const swaggerJson = JSON.stringify(document, null, 2);
@@ -34,11 +33,11 @@ async function bootstrap() {
     SwaggerModule.setup("docs", app, document);
   }
 
-  const port = AppConfig.getPort();
+  const port = config.getPort();
   const host = "0.0.0.0";
 
   await app.listen(port, host);
-  const appHost = AppConfig.getHost();
+  const appHost = config.getHost();
   const appUrl = `http://${appHost}:${port}`;
 
   console.log("\x1b[32m" + "┌" + "─".repeat(44) + "┐\x1b[0m");

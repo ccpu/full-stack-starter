@@ -77,10 +77,12 @@ COPY --chown=nestjs:nodejs --chmod=755 --from=prod-deps /usr/src/app/node_module
 # Copy built application
 COPY --chown=nestjs:nodejs --chmod=755 --from=build /usr/src/app/api/server/dist ./api/server/dist
 
-# Copy healthcheck script
-COPY --chown=nestjs:nodejs --chmod=755 --from=build /usr/src/app/api/server/healthcheck.js ./api/server/
+# Copy config/defaults.js for runtime config
+COPY --chown=nestjs:nodejs --chmod=755 --from=build /usr/src/app/api/server/config/defaults.cjs ./api/server/config/
 
-# Runtime security: Remove package managers (not needed since we don't have pnpm in this stage)
+# Copy healthcheck script
+COPY --chown=nestjs:nodejs --chmod=755 --from=build /usr/src/app/api/server/scripts/healthcheck.cjs ./api/server/scripts/
+
 # File system permissions: Make application directory read-only
 RUN chmod -R 555 /usr/src/app/api/server/dist
 
@@ -103,13 +105,7 @@ WORKDIR /usr/src/app/api/server
 
 # Security: Add healthcheck (optional but recommended)
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD node healthcheck.js || exit 1
+  CMD node scripts/healthcheck.cjs || exit 1
 
 # Default command
 CMD ["node", "dist/main.js"]
-
-# Security runtime recommendations (add these flags when running the container):
-# --cap-drop=ALL --security-opt=no-new-privileges --read-only
-# --tmpfs /tmp --tmpfs /var/tmp (if temporary files are needed)
-# Example: docker run --cap-drop=ALL --security-opt=no-new-privileges --read-only \
-#          --tmpfs /tmp --tmpfs /var/tmp -p 3000:49252 your-image

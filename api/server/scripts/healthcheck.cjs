@@ -12,17 +12,12 @@
  */
 
 const http = require("http");
-const config = require("./src/config/config.json");
-
-// Simple function to get port (matches the AppConfig.getPort() logic)
-function getPort() {
-  return process.env.PORT ? Number(process.env.PORT) : config.server.port;
-}
+const config = require("../config/defaults.cjs");
 
 const options = {
-  hostname: config.server.host || "localhost",
-  port: getPort(),
-  path: config.health.fullPath,
+  hostname: config.server.host,
+  port: config.getPort(),
+  path: config.getFullHealthPath(),
   method: "GET",
   timeout: 3000,
 };
