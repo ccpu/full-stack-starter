@@ -1,4 +1,3 @@
-import type { HealthCheckResult } from "@nestjs/terminus";
 import { Controller, Get, ServiceUnavailableException } from "@nestjs/common";
 import { ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
 import { HealthCheckService, MemoryHealthIndicator } from "@nestjs/terminus";
@@ -29,7 +28,7 @@ export class HealthController {
       ]);
 
       return { status: "ok" };
-    } catch (error) {
+    } catch {
       throw new ServiceUnavailableException({ status: "error" });
     }
   }

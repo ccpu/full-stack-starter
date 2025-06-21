@@ -35,7 +35,7 @@ async function bootstrap() {
   }
 
   const port = AppConfig.getPort();
-  const host = AppConfig.getHost();
+  const host = "0.0.0.0";
 
   await app.listen(port, host);
   const appHost = AppConfig.getHost();
