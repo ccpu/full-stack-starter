@@ -11,7 +11,30 @@
           }
         },
         "summary": "Get hello message",
-        "tags": ["app"]
+        "tags": [
+          "app"
+        ]
+      }
+    },
+    "/api/health": {
+      "get": {
+        "operationId": "HealthController_check",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Service is available"
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "503": {
+            "description": "Service is unavailable"
+          }
+        },
+        "summary": "Service status check",
+        "tags": [
+          "health"
+        ]
       }
     }
   },

@@ -5,6 +5,7 @@ import { FastifyAdapter } from "@nestjs/platform-fastify";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 
 import { AppModule } from "./app.module";
+import { AppConfig } from "./config/app.config";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, new FastifyAdapter());
@@ -33,18 +34,17 @@ async function bootstrap() {
     SwaggerModule.setup("docs", app, document);
   }
 
-  const port = process.env.PORT ? Number(process.env.PORT) : 49252;
-  const host = "0.0.0.0";
+  const port = AppConfig.getPort();
+  const host = AppConfig.getHost();
 
   await app.listen(port, host);
+  const appHost = AppConfig.getHost();
+  const appUrl = `http://${appHost}:${port}`;
+
   console.log("\x1b[32m" + "┌" + "─".repeat(44) + "┐\x1b[0m");
-  console.log(
-    `\x1b[32m│ Application: http://localhost:${port}/api     │\x1b[0m`,
-  );
+  console.log(`\x1b[32m│ Application: ${appUrl}/api    │\x1b[0m`);
   if (process.env.NODE_ENV !== "production") {
-    console.log(
-      `\x1b[32m│     Swagger: http://localhost:${port}/docs    │\x1b[0m`,
-    );
+    console.log(`\x1b[32m│     Swagger: ${appUrl}/docs   │\x1b[0m`);
   }
   console.log("\x1b[32m" + "└" + "─".repeat(44) + "┘\x1b[0m");
 }
