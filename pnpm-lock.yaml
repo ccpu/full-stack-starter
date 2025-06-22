@@ -138,6 +138,9 @@ importers:
       '@nestjs/throttler':
         specifier: ^6.4.0
         version: 6.4.0(@nestjs/common@11.1.3(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.3)(reflect-metadata@0.2.2)
+      '@utils/tailwind':
+        specifier: workspace:*
+        version: link:../../packages/utils/tailwind
       fastify:
         specifier: ^5.4.0
         version: 5.4.0

@@ -1,15 +1,26 @@
-# ---------- Base layer ----------
+# ---------- Common Base layer ----------
+# All subsequent stages will use this. Update the node version in just one place.
 FROM node:22-alpine3.20 AS base
+
+# ---------- Builder layer (with build tools) ----------
+FROM base AS builder
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
 
-# ---------- Dependencies layer ----------
-FROM base AS deps
+# ---------- Workspace layer ----------
+FROM builder AS workspace
 WORKDIR /usr/src/app
-COPY pnpm-lock.yaml package.json pnpm-workspace.yaml ./
+COPY package.json ./
+COPY api/server ./api/server/
+COPY packages/utils/tailwind ./packages/utils/tailwind/
+COPY tooling/typescript ./tooling/typescript/
+
+# ---------- Dependencies layer ----------
+FROM workspace AS deps
+WORKDIR /usr/src/app
+COPY pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY .npmrc.prod ./.npmrc
-COPY api/server/package.json ./api/server/
 # Security: Use secret mount to avoid exposing credentials in build logs
 # Ensure .npmrc file contains only registry config, not hardcoded tokens
 RUN --mount=type=secret,id=npmrc,target=/root/.npmrc \
@@ -18,23 +29,19 @@ RUN --mount=type=secret,id=npmrc,target=/root/.npmrc \
 # ---------- Build layer ----------
 FROM deps AS build
 WORKDIR /usr/src/app
-COPY api/server ./api/server/
+# Build the tailwind utils package first
+RUN pnpm --filter=@utils/tailwind build
+# Then build the server
 RUN pnpm --filter=@acme/server build
 
 # ---------- Production dependencies ----------
-FROM base AS prod-deps
+FROM workspace AS prod-deps
 WORKDIR /usr/src/app
 
+# Copy script to generate production package.json and run it
+COPY api/server/scripts/create-prod-package.cjs ./scripts/
 # Create a clean package.json with only production dependencies
-COPY api/server/package.json ./temp-package.json
-RUN node -e "\
-  const pkg = require('./temp-package.json'); \
-  const prodPkg = { \
-  name: pkg.name, \
-  version: pkg.version, \
-  dependencies: pkg.dependencies \
-  }; \
-  require('fs').writeFileSync('./package.json', JSON.stringify(prodPkg, null, 2));"
+RUN node ./scripts/create-prod-package.cjs
 
 # Install only production dependencies without workspace
 RUN corepack enable
@@ -43,7 +50,7 @@ RUN --mount=type=secret,id=npmrc,target=/root/.npmrc \
   pnpm install --prod --no-optional --strict-peer-dependencies
 
 # ---------- Production layer ----------
-FROM node:22-alpine3.20 AS production
+FROM base AS production
 
 # Add security labels
 LABEL security.scan="enabled"
@@ -73,6 +80,10 @@ USER nestjs
 
 # Copy production dependencies from prod-deps stage
 COPY --chown=nestjs:nodejs --chmod=755 --from=prod-deps /usr/src/app/node_modules ./node_modules
+
+# Copy built tailwind utils package (workspace dependency)
+COPY --chown=nestjs:nodejs --chmod=755 --from=build /usr/src/app/packages/utils/tailwind/dist ./node_modules/@utils/tailwind/dist
+COPY --chown=nestjs:nodejs --chmod=755 --from=build /usr/src/app/packages/utils/tailwind/package.json ./node_modules/@utils/tailwind/
 
 # Copy built application
 COPY --chown=nestjs:nodejs --chmod=755 --from=build /usr/src/app/api/server/dist ./api/server/dist

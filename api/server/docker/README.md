@@ -8,7 +8,7 @@ This guide explains how to build, run, and secure the NestJS API server using Do
 
 ```sh
 # Build the production Docker image
-docker build -f api/server/docker/Dockerfile.prod -t acme-server:latest .
+docker build --rm -f api/server/docker/Dockerfile.prod -t acme-server:latest .
 ```
 
 ## Run the Docker Container
@@ -112,7 +112,7 @@ services:
 ```sh
 # Build with secret file
 echo "//registry.npmjs.org/:_authToken=your-token" > .npmrc-secret
-docker build --secret id=npmrc,src=.npmrc-secret -f Dockerfile.ci .
+docker build --rm --secret id=npmrc,src=.npmrc-secret -f Dockerfile.prod .
 rm .npmrc-secret
 ```
 
