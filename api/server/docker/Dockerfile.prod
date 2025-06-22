@@ -13,7 +13,7 @@ FROM builder AS workspace
 WORKDIR /usr/src/app
 COPY package.json ./
 COPY api/server ./api/server/
-COPY packages/utils/tailwind ./packages/utils/tailwind/
+COPY packages/utils/common ./packages/utils/common/
 COPY tooling/typescript ./tooling/typescript/
 
 # ---------- Dependencies layer ----------
@@ -29,8 +29,8 @@ RUN --mount=type=secret,id=npmrc,target=/root/.npmrc \
 # ---------- Build layer ----------
 FROM deps AS build
 WORKDIR /usr/src/app
-# Build the tailwind utils package first
-RUN pnpm --filter=@utils/tailwind build
+# Build the common utils package first
+RUN pnpm --filter=@utils/common build
 # Then build the server
 RUN pnpm --filter=@acme/server build
 
@@ -81,9 +81,9 @@ USER nestjs
 # Copy production dependencies from prod-deps stage
 COPY --chown=nestjs:nodejs --chmod=755 --from=prod-deps /usr/src/app/node_modules ./node_modules
 
-# Copy built tailwind utils package (workspace dependency)
-COPY --chown=nestjs:nodejs --chmod=755 --from=build /usr/src/app/packages/utils/tailwind/dist ./node_modules/@utils/tailwind/dist
-COPY --chown=nestjs:nodejs --chmod=755 --from=build /usr/src/app/packages/utils/tailwind/package.json ./node_modules/@utils/tailwind/
+# Copy built common utils package (workspace dependency)
+COPY --chown=nestjs:nodejs --chmod=755 --from=build /usr/src/app/packages/utils/common/dist ./node_modules/@utils/common/dist
+COPY --chown=nestjs:nodejs --chmod=755 --from=build /usr/src/app/packages/utils/common/package.json ./node_modules/@utils/common/
 
 # Copy built application
 COPY --chown=nestjs:nodejs --chmod=755 --from=build /usr/src/app/api/server/dist ./api/server/dist

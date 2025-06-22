@@ -138,9 +138,9 @@ importers:
       '@nestjs/throttler':
         specifier: ^6.4.0
         version: 6.4.0(@nestjs/common@11.1.3(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.3)(reflect-metadata@0.2.2)
-      '@utils/tailwind':
+      '@utils/common':
         specifier: workspace:*
-        version: link:../../packages/utils/tailwind
+        version: link:../../packages/utils/common
       fastify:
         specifier: ^5.4.0
         version: 5.4.0
@@ -512,6 +512,27 @@ importers:
       rimraf:
         specifier: ^6.0.1
         version: 6.0.1
+    devDependencies:
+      '@acme/eslint-config':
+        specifier: workspace:*
+        version: link:../../../tooling/eslint
+      '@acme/prettier-config':
+        specifier: workspace:*
+        version: link:../../../tooling/prettier
+      '@acme/tsconfig':
+        specifier: workspace:*
+        version: link:../../../tooling/typescript
+      eslint:
+        specifier: 'catalog:'
+        version: 9.28.0(jiti@2.4.2)
+      prettier:
+        specifier: 'catalog:'
+        version: 3.5.3
+      typescript:
+        specifier: 'catalog:'
+        version: 5.8.3
+
+  packages/utils/common:
     devDependencies:
       '@acme/eslint-config':
         specifier: workspace:*
