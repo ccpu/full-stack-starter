@@ -1,7 +1,8 @@
 packages:
   - apps/*
-  - packages/*
-  - packages/**/*
+  - packages/app
+  - packages/ui
+  - packages/utils/*
   - tooling/*
   - api/*
 catalog:
@@ -17,7 +18,7 @@ catalog:
   '@types/react': ^19.1.6
   '@types/react-dom': ^19.1.5
   '@types/node': ^22.15.29
-  "@babel/core": ^7.27.4
+  '@babel/core': ^7.27.4
   autoprefixer: ^10.4.21
   jest: ^29.7.0
   ts-jest: ^29.2.5
@@ -25,5 +26,9 @@ catalog:
 ignoredBuiltDependencies:
   - unrs-resolver
 onlyBuiltDependencies:
+  - '@nestjs/core'
+  - '@scarf/scarf'
+  - '@swc/core'
   - core-js-pure
+  - esbuild
   - sharp
