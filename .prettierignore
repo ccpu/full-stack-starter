@@ -13,9 +13,11 @@ coverage/
 
 # Exclude auto-generated API client from formatting
 api/client/src/
-api/client/swagger.json
 
 # Lock files
 pnpm-lock.yaml
 package-lock.json
 yarn.lock
+
+# Ignore swagger.json files
+**/swagger.json
