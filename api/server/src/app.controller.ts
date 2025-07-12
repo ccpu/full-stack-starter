@@ -15,7 +15,6 @@ export class AppController {
   @ApiOperation({ summary: "Get hello message" })
   @ApiResponse({ status: 200, description: "Returns a hello message" })
   getHello(): string {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
     total = add(total, 1);
 
     return this.appService.getHello() + ` (${total})`;
