@@ -5,11 +5,11 @@
 module.exports = {
   server: {
     port: 49252,
-    host: "localhost",
-    basePrefix: "/api",
+    host: 'localhost',
+    basePrefix: '/api',
   },
   health: {
-    path: "/health",
+    path: '/health',
   },
 
   // Helper functions

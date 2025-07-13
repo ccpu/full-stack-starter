@@ -1,6 +1,5 @@
-import { Text, View } from "react-native";
-
-import { AboutNavButton, Container } from "@acme/ui";
+import { AboutNavButton, Container } from '@acme/ui';
+import { Text, View } from 'react-native';
 
 interface ScreenContentProps {
   children?: React.ReactNode;
@@ -8,7 +7,7 @@ interface ScreenContentProps {
 
 const HomeScreen: React.FC<ScreenContentProps> = () => {
   const description =
-    "Change any of the text, save the file, and your app will automatically update.";
+    'Change any of the text, save the file, and your app will automatically update.';
   return (
     <Container>
       <View className="my-1 rounded-md p-3 px-1">

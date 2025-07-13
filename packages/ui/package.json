@@ -22,6 +22,7 @@
     "@acme/prettier-config": "workspace:*",
     "@acme/tailwind-config": "workspace:*",
     "@acme/tsconfig": "workspace:*",
+    "@pixpilot/dev-config": "catalog:",
     "@types/react": "catalog:",
     "eslint": "catalog:",
     "prettier": "catalog:",

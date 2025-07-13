@@ -1,10 +1,10 @@
-import { withExpo } from "@expo/next-adapter";
-import { createJiti } from "jiti";
+import { withExpo } from '@expo/next-adapter';
+import { createJiti } from 'jiti';
 
 const jiti = createJiti(import.meta.url);
 
 // Purpose: Fail fast if required env vars are missing/malformed
-await jiti.import("./src/env");
+await jiti.import('./src/env');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -12,14 +12,14 @@ const nextConfig = {
 
   transpilePackages: [
     // React Native packages
-    "react-native-css-interop",
+    'react-native-css-interop',
 
     // Expo packages
-    "expo",
-    "expo-modules-core",
-    "expo-linking",
-    "expo-router",
-    "expo-constants",
+    'expo',
+    'expo-modules-core',
+    'expo-linking',
+    'expo-router',
+    'expo-constants',
   ],
 
   /** We already do linting and typechecking as separate tasks in CI */

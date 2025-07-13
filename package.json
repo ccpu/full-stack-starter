@@ -27,6 +27,7 @@
     "lint": "turbo run lint --continue -- --cache --cache-location .cache/.eslintcache",
     "lint:fix": "turbo run lint --continue -- --fix --cache --cache-location .cache/.eslintcache",
     "lint:ws": "pnpm dlx sherif@latest",
+    "fix:all": "pnpm format:fix && pnpm lint:fix",
     "postinstall": "pnpm lint:ws",
     "typecheck": "turbo run typecheck",
     "clean:packages": "node scripts/cleanup-node-modules.js",

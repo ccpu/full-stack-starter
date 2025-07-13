@@ -1,9 +1,9 @@
-import React from "react";
-import { View } from "react-native";
-import { Stack } from "expo-router";
-import { StatusBar } from "expo-status-bar";
+import { Stack } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { View } from 'react-native';
 
-import "../styles.css";
+import '../styles.css';
 
 // This is the main layout of the app
 // It wraps your pages with the providers they need
@@ -15,21 +15,21 @@ export default function RootLayout() {
         screenOptions={{
           headerShown: true,
           contentStyle: {
-            backgroundColor: "transparent",
+            backgroundColor: 'transparent',
           },
-          animation: "default",
+          animation: 'default',
         }}
       >
         <Stack.Screen
           name="index"
           options={{
-            title: "Home",
+            title: 'Home',
           }}
         />
         <Stack.Screen
           name="about"
           options={{
-            title: "About",
+            title: 'About',
           }}
         />
       </Stack>

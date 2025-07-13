@@ -1,6 +1,5 @@
-import { Text, View } from "react-native";
-
-import { Container, HomeNavButton } from "@acme/ui";
+import { Container, HomeNavButton } from '@acme/ui';
+import { Text, View } from 'react-native';
 
 interface ScreenContentProps {
   children?: React.ReactNode;
@@ -8,7 +7,7 @@ interface ScreenContentProps {
 
 const AboutScreen: React.FC<ScreenContentProps> = () => {
   const description =
-    "This is the about page. Learn more about our amazing project here.";
+    'This is the about page. Learn more about our amazing project here.';
 
   return (
     <Container>

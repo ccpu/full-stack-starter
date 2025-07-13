@@ -1,7 +1,7 @@
 // Stub for expo-router during development
 // This prevents Vite from trying to process the actual expo-router files
 
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react';
 
 export const router = {
   push: (href: string) => {
@@ -35,10 +35,7 @@ export const Stack = ({
   children: ReactNode;
   [key: string]: unknown;
 }) => {
-  console.warn(
-    `[expo-router stub] Stack component rendered with props:`,
-    _props,
-  );
+  console.warn(`[expo-router stub] Stack component rendered with props:`, _props);
   return children;
 };
 
@@ -64,7 +61,7 @@ export const useGlobalSearchParams = () => ({});
 
 export const useSegments = () => [];
 
-export const usePathname = () => "/";
+export const usePathname = () => '/';
 
 export default {
   router,

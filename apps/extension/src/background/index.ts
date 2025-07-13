@@ -1,4 +1,4 @@
-console.log("background is running");
+console.warn('background is running');
 
 interface ChromeMessage {
   type: string;
@@ -6,9 +6,9 @@ interface ChromeMessage {
 }
 
 chrome.runtime.onMessage.addListener((request: ChromeMessage) => {
-  if (request.type === "COUNT") {
+  if (request.type === 'COUNT') {
     console.log(
-      "background has received a message from popup, and count is ",
+      'background has received a message from popup, and count is ',
       request.count,
     );
   }

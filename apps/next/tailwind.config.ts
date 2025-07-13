@@ -1,7 +1,7 @@
-import type { Config } from "tailwindcss";
-import { fontFamily } from "tailwindcss/defaultTheme";
+import type { Config } from 'tailwindcss';
+import { fontFamily } from 'tailwindcss/defaultTheme';
 
-import baseConfig from "@acme/tailwind-config/web";
+import baseConfig from '@acme/tailwind-config/web';
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -9,12 +9,12 @@ module.exports = {
   // those classes are included correctly.
   content: [...baseConfig.content],
   presets: [baseConfig],
-  darkMode: "class",
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-geist-sans)", ...fontFamily.sans],
-        mono: ["var(--font-geist-mono)", ...fontFamily.mono],
+        sans: ['var(--font-geist-sans)', ...fontFamily.sans],
+        mono: ['var(--font-geist-mono)', ...fontFamily.mono],
       },
     },
   },

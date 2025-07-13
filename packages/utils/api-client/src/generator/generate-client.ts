@@ -1,20 +1,18 @@
-import { execSync } from "child_process";
-import fs from "fs";
-import path from "path";
-import chalk from "chalk";
-import { glob } from "glob";
+import { execSync } from 'child_process';
+import fs from 'fs';
+import path from 'path';
+
+import chalk from 'chalk';
+import { glob } from 'glob';
 
 import {
   getPackageJson,
   isPackageInstalledGlobally,
   isSwaggerFileChanged,
   resolveFromRoot,
-} from "../utils/index.js";
+} from '../utils/index.js';
 
-export const generateClientApi = (
-  srcSwaggerJsonFile: string,
-  force = false,
-) => {
+export const generateClientApi = (srcSwaggerJsonFile: string, force = false) => {
   const swaggerFilePath = path.isAbsolute(srcSwaggerJsonFile)
     ? srcSwaggerJsonFile
     : resolveFromRoot(srcSwaggerJsonFile);
@@ -25,19 +23,19 @@ export const generateClientApi = (
   }
 
   const clientApiDir = resolveFromRoot(`api/client`);
-  const clientApiSwaggerFilePath = path.join(clientApiDir, "swagger.json");
+  const clientApiSwaggerFilePath = path.join(clientApiDir, 'swagger.json');
 
   if (
     fs.existsSync(clientApiSwaggerFilePath) &&
     !isSwaggerFileChanged(swaggerFilePath, clientApiSwaggerFilePath) &&
     !force
   ) {
-    console.info("No change detected!");
+    console.warn('No change detected!');
     return;
   }
 
-  console.info("Generating client api...");
-  console.info(`File location: '${srcSwaggerJsonFile}'`);
+  console.warn('Generating client api...');
+  console.warn(`File location: '${srcSwaggerJsonFile}'`);
 
   const clientApiSourceDir = clientApiDir;
 
@@ -51,20 +49,20 @@ export const generateClientApi = (
     }
   }
 
-  if (!isPackageInstalledGlobally("@openapitools/openapi-generator-cli")) {
+  if (!isPackageInstalledGlobally('@openapitools/openapi-generator-cli')) {
     throw new Error(
       "Unable to find '@openapitools/openapi-generator-cli' make sure this package installed globally.",
     );
   }
 
   const scriptDir = path.dirname(
-    new URL(import.meta.url).pathname.replace(/^\/([A-Z]):/, "$1:"),
+    new URL(import.meta.url).pathname.replace(/^\/([A-Z]):/, '$1:'),
   );
-  const configPath = path.join(scriptDir, "config.yaml");
+  const configPath = path.join(scriptDir, 'config.yaml');
 
   execSync(
     `openapi-generator-cli generate -g typescript-fetch -i "${swaggerFilePath}" -o "${clientApiSourceDir}" -c "${configPath}"`,
-    { stdio: "inherit" },
+    { stdio: 'inherit' },
   );
 
   // Create package.json
@@ -77,10 +75,10 @@ export const generateClientApi = (
   fs.copyFileSync(swaggerFilePath, clientApiSwaggerFilePath);
 
   // Add ESLint disable comments to generated files
-  const files = glob.sync("**/*.ts", { cwd: clientApiDir });
+  const files = glob.sync('**/*.ts', { cwd: clientApiDir });
 
   files.forEach((file) => {
-    if (!file.endsWith("configuration.ts") && !file.endsWith("Extended.ts")) {
+    if (!file.endsWith('configuration.ts') && !file.endsWith('Extended.ts')) {
       const fullPath = path.join(clientApiDir, file);
       const data = fs.readFileSync(fullPath).toString();
       fs.writeFileSync(
@@ -92,13 +90,13 @@ export const generateClientApi = (
 
   // Create TypeScript config
   const tsConfigContent = {
-    extends: "@acme/tsconfig/base.json",
+    extends: '@acme/tsconfig/base.json',
     compilerOptions: {
-      outDir: "dist",
-      rootDir: "src",
+      outDir: 'dist',
+      rootDir: 'src',
     },
-    include: ["src"],
-    exclude: ["node_modules", "dist"],
+    include: ['src'],
+    exclude: ['node_modules', 'dist'],
   };
 
   fs.writeFileSync(
@@ -119,13 +117,13 @@ export default [
 
   fs.writeFileSync(`${clientApiDir}/eslint.config.js`, eslintConfigContent);
 
-  console.info(chalk.greenBright("Client API generated!"));
-  console.info(chalk.blueBright(`Location: ${clientApiDir}`));
-  console.info(chalk.blueBright(`Package name: ${packageName}`));
+  console.warn(chalk.greenBright('Client API generated!'));
+  console.warn(chalk.blueBright(`Location: ${clientApiDir}`));
+  console.warn(chalk.blueBright(`Package name: ${packageName}`));
 };
 
 /* istanbul ignore next */
 if (import.meta.url === `file://${process.argv[1]}`) {
   /* istanbul ignore next */
-  generateClientApi(resolveFromRoot("api/server/swagger.json"), true);
+  generateClientApi(resolveFromRoot('api/server/swagger.json'), true);
 }

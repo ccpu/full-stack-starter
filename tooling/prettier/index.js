@@ -1,4 +1,5 @@
-import { fileURLToPath } from "node:url";
+import { fileURLToPath } from 'node:url';
+import prettierConfig from '@pixpilot/dev-config/prettier';
 
 /** @typedef {import("prettier").Config} PrettierConfig */
 /** @typedef {import("prettier-plugin-tailwindcss").PluginOptions} TailwindConfig */
@@ -6,56 +7,39 @@ import { fileURLToPath } from "node:url";
 
 /** @type { PrettierConfig | SortImportsConfig | TailwindConfig } */
 const config = {
-  plugins: [
-    "@ianvs/prettier-plugin-sort-imports",
-    "prettier-plugin-tailwindcss",
-  ],
+  ...prettierConfig,
+  plugins: ['prettier-plugin-tailwindcss'],
   tailwindConfig: fileURLToPath(
-    new URL("../../tooling/tailwind/web.ts", import.meta.url),
+    new URL('../../tooling/tailwind/web.ts', import.meta.url),
   ),
-  tailwindFunctions: ["cn", "cva"],
-  importOrder: [
-    "<TYPES>",
-    "^(react/(.*)$)|^(react$)|^(react-native(.*)$)",
-    "^(next/(.*)$)|^(next$)",
-    "^(expo(.*)$)|^(expo$)",
-    "<THIRD_PARTY_MODULES>",
-    "",
-    "<TYPES>^@acme",
-    "^@acme/(.*)$",
-    "",
-    "<TYPES>^[.|..|~]",
-    "^~/",
-    "^[../]",
-    "^[./]",
-  ],
-  importOrderParserPlugins: ["typescript", "jsx", "decorators-legacy"],
-  importOrderTypeScriptVersion: "4.4.0",
+  tailwindFunctions: ['cn', 'cva'],
+  importOrderParserPlugins: ['typescript', 'jsx', 'decorators-legacy'],
+  importOrderTypeScriptVersion: '4.4.0',
   overrides: [
     {
-      files: "*.json.hbs",
+      files: '*.json.hbs',
       options: {
-        parser: "json",
+        parser: 'json',
       },
     },
     {
-      files: "*.js.hbs",
+      files: '*.js.hbs',
       options: {
-        parser: "babel",
+        parser: 'babel',
       },
     },
     {
-      files: ["*.json", "tsconfig*.json"],
+      files: ['*.json', 'tsconfig*.json'],
       options: {
         printWidth: 120,
         tabWidth: 2,
         useTabs: false,
         semi: false,
         singleQuote: false,
-        trailingComma: "none",
+        trailingComma: 'none',
         bracketSpacing: true,
         bracketSameLine: false,
-        arrowParens: "avoid",
+        arrowParens: 'avoid',
       },
     },
   ],

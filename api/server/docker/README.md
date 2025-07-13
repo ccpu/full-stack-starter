@@ -88,7 +88,7 @@ docker run \
 ## Docker Compose Security Example
 
 ```yaml
-version: "3.8"
+version: '3.8'
 services:
   nestjs-server:
     image: acme-server:latest
@@ -101,7 +101,7 @@ services:
       - /tmp
       - /var/tmp
     ports:
-      - "3000:49252"
+      - '3000:49252'
     restart: unless-stopped
 ```
 

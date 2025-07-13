@@ -9,8 +9,8 @@
  * with only external dependencies for production installation.
  */
 
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 
 /**
  * Recursively finds all package.json files in a directory, excluding node_modules
@@ -25,10 +25,10 @@ function findPackageJsonFiles(dir, packageFiles = []) {
 
       if (stat.isDirectory()) {
         // Skip node_modules directories
-        if (item !== "node_modules") {
+        if (item !== 'node_modules') {
           findPackageJsonFiles(fullPath, packageFiles);
         }
-      } else if (item === "package.json") {
+      } else if (item === 'package.json') {
         packageFiles.push(fullPath);
       }
     }
@@ -45,18 +45,16 @@ function findPackageJsonFiles(dir, packageFiles = []) {
  */
 function processPackageFile(packagePath) {
   try {
-    const packageContent = JSON.parse(fs.readFileSync(packagePath, "utf8"));
+    const packageContent = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
     const dependencies = {};
 
     // Process regular dependencies (production only, skip devDependencies)
     if (packageContent.dependencies) {
       Object.entries(packageContent.dependencies).forEach(([name, version]) => {
-        if (!version.startsWith("workspace:")) {
+        if (!version.startsWith('workspace:')) {
           dependencies[name] = version;
         } else {
-          console.log(
-            `Skipping workspace dependency: ${name} from ${packagePath}`,
-          );
+          console.log(`Skipping workspace dependency: ${name} from ${packagePath}`);
         }
       });
     }
@@ -81,18 +79,15 @@ function createProdPackage() {
     // In Docker context, we're in /usr/src/app/scripts, so go up one level
     // In local context, we're in api/server/scripts, so go up three levels
     let workspaceRoot;
-    if (
-      process.env.NODE_ENV === "production" ||
-      process.cwd().includes("/usr/src/app")
-    ) {
+    if (process.env.NODE_ENV === 'production' || process.cwd().includes('/usr/src/app')) {
       // Docker context: we're in /usr/src/app/scripts
-      workspaceRoot = path.resolve(__dirname, "..");
+      workspaceRoot = path.resolve(__dirname, '..');
     } else {
       // Local context: we're in api/server/scripts
-      workspaceRoot = path.resolve(__dirname, "..", "..", "..");
+      workspaceRoot = path.resolve(__dirname, '..', '..', '..');
     }
 
-    console.log("[createProdPackage] Workspace root:", workspaceRoot);
+    console.log('[createProdPackage] Workspace root:', workspaceRoot);
 
     // Find all package.json files recursively
     const packageFiles = findPackageJsonFiles(workspaceRoot);
@@ -104,11 +99,11 @@ function createProdPackage() {
       .filter((pkg) => pkg !== null);
 
     // Find the main server package (this one) for name and version
-    const serverPackagePath = path.join(__dirname, "..", "package.json");
+    const serverPackagePath = path.join(__dirname, '..', 'package.json');
     const serverPkg = processPackageFile(serverPackagePath);
 
     if (!serverPkg) {
-      throw new Error("Could not find or process server package.json");
+      throw new Error('Could not find or process server package.json');
     }
 
     // Initialize production package structure
@@ -138,15 +133,13 @@ function createProdPackage() {
     });
 
     // Write the production package.json (without workspace configuration)
-    const outputPath = path.join(__dirname, "..", "package.json");
+    const outputPath = path.join(__dirname, '..', 'package.json');
     fs.writeFileSync(outputPath, JSON.stringify(prodPkg, null, 2));
 
-    console.log("Production package.json created successfully");
-    console.log(
-      `Total dependencies: ${Object.keys(prodPkg.dependencies).length}`,
-    );
+    console.log('Production package.json created successfully');
+    console.log(`Total dependencies: ${Object.keys(prodPkg.dependencies).length}`);
   } catch (error) {
-    console.error("Error creating production package.json:", error.message);
+    console.error('Error creating production package.json:', error.message);
     process.exit(1);
   }
 }

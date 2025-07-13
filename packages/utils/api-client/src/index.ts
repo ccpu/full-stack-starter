@@ -1,2 +1,2 @@
-export * from "./generator/generate-client";
-export * from "./utils/index";
+export * from './generator/generate-client';
+export * from './utils/index';

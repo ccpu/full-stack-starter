@@ -7,7 +7,7 @@ packages:
   - api/*
 catalog:
   eslint: ^9.28.0
-  prettier: ^3.5.3
+  prettier: ^3.6.0
   tailwindcss: ^3.4.15
   nativewind: ~4.1.23
   typescript: ^5.8.3
@@ -23,10 +23,12 @@ catalog:
   jest: ^29.7.0
   ts-jest: ^29.2.5
   '@types/jest': ^29.5.14
+  '@pixpilot/dev-config': ^1.6.1
 ignoredBuiltDependencies:
   - unrs-resolver
 onlyBuiltDependencies:
   - '@nestjs/core'
+  - '@pixpilot/dev-config'
   - '@scarf/scarf'
   - '@swc/core'
   - core-js-pure

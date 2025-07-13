@@ -11,14 +11,14 @@
  * - Host: process.env.HOST || "localhost"
  */
 
-const http = require("http");
-const config = require("../config/defaults.cjs");
+const http = require('http');
+const config = require('../config/defaults.cjs');
 
 const options = {
   hostname: config.server.host,
   port: config.getPort(),
   path: config.getFullHealthPath(),
-  method: "GET",
+  method: 'GET',
   timeout: 3000,
 };
 
@@ -31,13 +31,13 @@ const healthCheck = http.request(options, (res) => {
   }
 });
 
-healthCheck.on("error", (err) => {
+healthCheck.on('error', (err) => {
   console.error(`Health check failed: ${err.message}`);
   process.exit(1);
 });
 
-healthCheck.on("timeout", () => {
-  console.error("Health check timed out");
+healthCheck.on('timeout', () => {
+  console.error('Health check timed out');
   healthCheck.destroy();
   process.exit(1);
 });

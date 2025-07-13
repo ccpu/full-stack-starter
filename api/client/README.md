@@ -57,11 +57,11 @@ pnpm publish --access public
 Below is an example of how to use the generated API client in your project:
 
 ```ts
-import { AppApi, Configuration } from "@acme/api-client";
+import { AppApi, Configuration } from '@acme/api-client';
 
 // Create a configuration (optional)
 const config = new Configuration({
-  basePath: "http://localhost:49252", // Your API server URL
+  basePath: 'http://localhost:49252', // Your API server URL
   // Add other configuration options like headers, middleware, etc.
 });
 
@@ -72,10 +72,10 @@ const appApi = new AppApi(config);
 export async function getHelloMessage() {
   try {
     const response = await appApi.appControllerGetHello();
-    console.log("Hello message received:", response);
+    console.log('Hello message received:', response);
     return response;
   } catch (error) {
-    console.error("Error calling API:", error);
+    console.error('Error calling API:', error);
     throw error;
   }
 }

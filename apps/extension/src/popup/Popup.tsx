@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-import { Button } from "../components/Button";
+import { Button } from '../components/Button';
 
 export const Popup = () => {
   const [count, setCount] = useState(0);
@@ -12,14 +12,14 @@ export const Popup = () => {
   const add = () => setCount(count + 1);
 
   useEffect(() => {
-    chrome.storage.sync.get(["count"], (result: { count?: number }) => {
+    chrome.storage.sync.get(['count'], (result: { count?: number }) => {
       setCount(result.count ?? 0);
     });
   }, []);
 
   useEffect(() => {
     void chrome.storage.sync.set({ count });
-    void chrome.runtime.sendMessage({ type: "COUNT", count });
+    void chrome.runtime.sendMessage({ type: 'COUNT', count });
   }, [count]);
 
   return (
@@ -31,12 +31,7 @@ export const Popup = () => {
           <div className="mb-2 text-2xl font-bold">{count}</div>
 
           <div className="flex justify-center gap-2">
-            <Button
-              onClick={minus}
-              disabled={count <= 0}
-              variant="danger"
-              size="sm"
-            >
+            <Button onClick={minus} disabled={count <= 0} variant="danger" size="sm">
               -
             </Button>
             <Button onClick={add} variant="primary" size="sm">
