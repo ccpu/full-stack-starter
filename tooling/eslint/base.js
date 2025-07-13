@@ -33,6 +33,7 @@ export const restrictEnvAccess = tseslint.config(
   },
 );
 
+/** @type {Awaited<import('typescript-eslint').Config>} */
 export default [
   includeIgnoreFile(path.join(import.meta.dirname, '../../.gitignore')),
   { ignores: ['**/*.config.*'] },
