@@ -1,9 +1,11 @@
 import baseConfig from '@acme/eslint-config/base';
+import { Config } from 'typescript-eslint';
 
-/** @type {import('typescript-eslint').Config} */
-export default [
+const config: Config = [
   {
     ignores: [],
   },
   ...baseConfig,
 ];
+
+export default config;

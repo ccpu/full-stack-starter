@@ -1,7 +1,4 @@
-import * as path from 'node:path';
-import { includeIgnoreFile } from '@eslint/compat';
-import eslintConfig from '@pixpilot/dev-config/eslint';
-import jestConfig from '@pixpilot/dev-config/eslint-jest';
+import defineConfig from '@pixpilot/eslint-config';
 import turboPlugin from 'eslint-plugin-turbo';
 import tseslint from 'typescript-eslint';
 
@@ -33,14 +30,10 @@ export const restrictEnvAccess = tseslint.config(
   },
 );
 
-/** @type {Awaited<import('typescript-eslint').Config>} */
-export default [
-  includeIgnoreFile(path.join(import.meta.dirname, '../../.gitignore')),
+// eslint-disable-next-line antfu/no-top-level-await
+const baseConfig = await defineConfig(
+  { type: 'app', turbo: true },
   { ignores: ['**/*.config.*'] },
-
-  ...eslintConfig,
-  ...jestConfig,
-
   {
     files: ['**/*.js', '**/*.ts', '**/*.tsx'],
     plugins: {
@@ -57,6 +50,10 @@ export default [
       ],
     },
   },
+);
 
-  ...restrictEnvAccess,
-];
+/**
+ * All packages that leverage t3-env should use this rule
+ */
+/** @type {Awaited<import('typescript-eslint').Config>} */
+export default [...baseConfig, ...restrictEnvAccess];

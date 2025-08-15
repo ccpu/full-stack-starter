@@ -3,9 +3,8 @@ import prettierConfig from '@pixpilot/dev-config/prettier';
 
 /** @typedef {import("prettier").Config} PrettierConfig */
 /** @typedef {import("prettier-plugin-tailwindcss").PluginOptions} TailwindConfig */
-/** @typedef {import("@ianvs/prettier-plugin-sort-imports").PluginConfig} SortImportsConfig */
 
-/** @type { PrettierConfig | SortImportsConfig | TailwindConfig } */
+/** @type { PrettierConfig  | TailwindConfig } */
 const config = {
   ...prettierConfig,
   plugins: ['prettier-plugin-tailwindcss'],
@@ -13,8 +12,6 @@ const config = {
     new URL('../../tooling/tailwind/web.ts', import.meta.url),
   ),
   tailwindFunctions: ['cn', 'cva'],
-  importOrderParserPlugins: ['typescript', 'jsx', 'decorators-legacy'],
-  importOrderTypeScriptVersion: '4.4.0',
   overrides: [
     {
       files: '*.json.hbs',
@@ -26,20 +23,6 @@ const config = {
       files: '*.js.hbs',
       options: {
         parser: 'babel',
-      },
-    },
-    {
-      files: ['*.json', 'tsconfig*.json'],
-      options: {
-        printWidth: 120,
-        tabWidth: 2,
-        useTabs: false,
-        semi: false,
-        singleQuote: false,
-        trailingComma: 'none',
-        bracketSpacing: true,
-        bracketSameLine: false,
-        arrowParens: 'avoid',
       },
     },
   ],

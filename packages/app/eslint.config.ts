@@ -1,8 +1,8 @@
 import baseConfig from '@acme/eslint-config/base';
 import reactConfig from '@acme/eslint-config/react';
+import { Config } from 'typescript-eslint';
 
-/** @type {import('typescript-eslint').Config} */
-export default [
+const config: Config = [
   {
     ignores: ['dist/**'],
   },
@@ -17,3 +17,5 @@ export default [
     },
   },
 ];
+
+export default config;

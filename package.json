@@ -5,7 +5,7 @@
     "node": ">=22.14.0",
     "pnpm": ">=9.6.0"
   },
-  "packageManager": "pnpm@10.11.1",
+  "packageManager": "pnpm@10.14.0",
   "scripts": {
     "build": "turbo run build",
     "native": "cd apps/expo && pnpm dev",
@@ -34,16 +34,18 @@
     "clean:packages:install": "pnpm clean:packages && pnpm install",
     "clean:workspaces": "turbo run clean",
     "clean:workspaces:install": "pnpm clean:workspaces && pnpm install",
+    "deps:update": "npx taze -r -w && pnpm install",
+    "deps:update:major": "npx taze major -r -w && pnpm install",
     "turbo:gen:init": "pnpm turbo gen init"
   },
   "devDependencies": {
     "@acme/prettier-config": "workspace:*",
     "@babel/core": "catalog:",
-    "@turbo/gen": "^2.5.4",
+    "@turbo/gen": "^2.5.6",
     "autoprefixer": "catalog:",
     "prettier": "catalog:",
-    "tsx": "^4.20.3",
-    "turbo": "^2.5.4",
+    "tsx": "^4.20.4",
+    "turbo": "^2.5.6",
     "typescript": "catalog:"
   },
   "prettier": "@acme/prettier-config"
