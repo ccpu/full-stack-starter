@@ -1,7 +1,7 @@
 {
   "name": "@acme/ui",
-  "private": true,
   "version": "0.1.0",
+  "private": true,
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -12,6 +12,9 @@
     "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore",
     "lint": "eslint",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "peerDependencies": {
+    "react": "catalog:"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
@@ -28,9 +31,6 @@
     "prettier": "catalog:",
     "react": "catalog:",
     "typescript": "catalog:"
-  },
-  "peerDependencies": {
-    "react": "catalog:"
   },
   "prettier": "@acme/prettier-config"
 }

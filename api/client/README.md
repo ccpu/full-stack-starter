@@ -69,7 +69,7 @@ const config = new Configuration({
 const appApi = new AppApi(config);
 
 // Example function to call the API
-export async function getHelloMessage() {
+export async function getHelloMessage(): Promise<any> {
   try {
     const response = await appApi.appControllerGetHello();
     console.log('Hello message received:', response);

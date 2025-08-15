@@ -16,6 +16,7 @@ if (appElement) {
   );
 }
 
-chrome.devtools.panels.create('ReactCrx', '', '../../devtools.html', function () {
+chrome.devtools.panels.create('ReactCrx', '', '../../devtools.html', () => {
+  // eslint-disable-next-line no-console
   console.log('devtools panel create');
 });

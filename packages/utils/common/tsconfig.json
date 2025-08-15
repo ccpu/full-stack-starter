@@ -1,13 +1,13 @@
 {
   "extends": "@acme/tsconfig/base.json",
   "compilerOptions": {
-    "outDir": "dist",
+    "module": "commonjs",
+    "moduleResolution": "node",
     "declaration": true,
     "declarationMap": true,
-    "sourceMap": true,
     "noEmit": false,
-    "module": "commonjs",
-    "moduleResolution": "node"
+    "outDir": "dist",
+    "sourceMap": true
   },
   "include": ["src/**/*.ts", "index.ts"],
   "exclude": ["node_modules", "dist"]

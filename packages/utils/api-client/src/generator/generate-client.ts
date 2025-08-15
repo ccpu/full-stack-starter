@@ -1,6 +1,7 @@
-import { execSync } from 'child_process';
-import fs from 'fs';
-import path from 'path';
+import { execSync } from 'node:child_process';
+import fs from 'node:fs';
+import path from 'node:path';
+import processModule from 'node:process';
 
 import chalk from 'chalk';
 import { glob } from 'glob';
@@ -12,7 +13,7 @@ import {
   resolveFromRoot,
 } from '../utils/index.js';
 
-export const generateClientApi = (srcSwaggerJsonFile: string, force = false) => {
+export function generateClientApi(srcSwaggerJsonFile: string, force = false): void {
   const swaggerFilePath = path.isAbsolute(srcSwaggerJsonFile)
     ? srcSwaggerJsonFile
     : resolveFromRoot(srcSwaggerJsonFile);
@@ -56,7 +57,7 @@ export const generateClientApi = (srcSwaggerJsonFile: string, force = false) => 
   }
 
   const scriptDir = path.dirname(
-    new URL(import.meta.url).pathname.replace(/^\/([A-Z]):/, '$1:'),
+    new URL(import.meta.url).pathname.replace(/^\/(?<temp1>[A-Z]):/u, '$1:'),
   );
   const configPath = path.join(scriptDir, 'config.yaml');
 
@@ -120,10 +121,10 @@ export default [
   console.warn(chalk.greenBright('Client API generated!'));
   console.warn(chalk.blueBright(`Location: ${clientApiDir}`));
   console.warn(chalk.blueBright(`Package name: ${packageName}`));
-};
+}
 
 /* istanbul ignore next */
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (import.meta.url === `file://${processModule.argv[1]}`) {
   /* istanbul ignore next */
   generateClientApi(resolveFromRoot('api/server/swagger.json'), true);
 }

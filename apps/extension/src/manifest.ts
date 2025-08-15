@@ -1,4 +1,4 @@
-import { defineManifest } from '@crxjs/vite-plugin';
+import type { ManifestV3Export } from '@crxjs/vite-plugin';
 
 import packageData from '../package.json';
 
@@ -13,8 +13,7 @@ const isDev = import.meta.env.NODE_ENV === 'development';
 
 const pkg = packageData as PackageJson;
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-const manifest = defineManifest({
+const manifest: ManifestV3Export = {
   name: `${pkg.displayName ?? pkg.name}${isDev ? ` ➡️ Dev` : ''}`,
   description: pkg.description,
   version: pkg.version,
@@ -59,8 +58,6 @@ const manifest = defineManifest({
   chrome_url_overrides: {
     newtab: 'newtab.html',
   },
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-} as any);
+};
 
 export default manifest;

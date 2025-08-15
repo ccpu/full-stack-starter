@@ -13,6 +13,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
 
   // Wait until after hydration to avoid mismatch
   useEffect(() => {
+    // eslint-disable-next-line react-hooks-extra/no-direct-set-state-in-use-effect
     setMounted(true);
   }, []);
 
@@ -36,6 +37,8 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
         return 'Dark Theme';
       case 'system':
         return 'System Theme';
+      case undefined:
+        return 'Theme';
       default:
         return 'Theme';
     }
@@ -43,6 +46,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
 
   return (
     <button
+      type="button"
       onClick={toggleTheme}
       className={`rounded-md border px-4 py-2 transition-colors ${
         mounted && theme === 'dark'

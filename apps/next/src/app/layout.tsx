@@ -1,6 +1,6 @@
-import './global.css';
-
 import { ThemeProvider, ThemeToggle } from '@acme/ui';
+
+import './global.css';
 
 export const metadata = {
   title: 'Create Expo & nextjs App',

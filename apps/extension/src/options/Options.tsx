@@ -11,7 +11,7 @@ interface StorageResult {
   count?: number;
 }
 
-export const Options = () => {
+export function Options () {
   const [countSync, setCountSync] = useState(0);
   const link = 'https://github.com/guocaoyi/create-chrome-ext';
 
@@ -36,6 +36,6 @@ export const Options = () => {
       </a>
     </main>
   );
-};
+}
 
 export default Options;

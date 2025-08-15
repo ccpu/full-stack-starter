@@ -17,6 +17,6 @@ export class AppController {
   getHello(): string {
     total = add(total, 1);
 
-    return this.appService.getHello() + ` (${total})`;
+    return `${this.appService.getHello()  } (${total})`;
   }
 }

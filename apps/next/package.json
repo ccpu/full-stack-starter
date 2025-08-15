@@ -1,8 +1,9 @@
 {
   "name": "@acme/nextjs",
+  "type": "module",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
+  "sideEffects": false,
   "scripts": {
     "build": "pnpm with-env next build",
     "clean": "git clean -xdf .cache .next .turbo node_modules",
@@ -39,6 +40,5 @@
     "tailwindcss": "catalog:",
     "typescript": "catalog:"
   },
-  "prettier": "@acme/prettier-config",
-  "sideEffects": false
+  "prettier": "@acme/prettier-config"
 }

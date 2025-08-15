@@ -9,7 +9,7 @@ interface StorageResult {
   count?: number;
 }
 
-export const SidePanel = () => {
+export function SidePanel () {
   const [countSync, setCountSync] = useState(0);
   const link = 'https://github.com/guocaoyi/create-chrome-ext';
 
@@ -41,6 +41,6 @@ export const SidePanel = () => {
       </a>
     </main>
   );
-};
+}
 
 export default SidePanel;

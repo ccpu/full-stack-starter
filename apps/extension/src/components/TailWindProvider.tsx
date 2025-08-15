@@ -1,15 +1,13 @@
-import '../global.css';
-
 import { ThemeProvider } from '@acme/ui';
+
 import React from 'react';
+import '../global.css';
 
 export interface TailWindProviderProps {
   children?: React.ReactNode;
 }
 
-const TailWindProvider: React.FC<TailWindProviderProps> = ({ children }) => {
-  return <ThemeProvider>{children}</ThemeProvider>;
-};
+const TailWindProvider: React.FC<TailWindProviderProps> = ({ children }) => <ThemeProvider>{children}</ThemeProvider>;
 
 TailWindProvider.displayName = 'TailWindProvider';
 

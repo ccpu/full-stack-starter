@@ -1,11 +1,12 @@
 {
   "name": "@acme/extension",
   "displayName": "extension",
+  "type": "module",
   "version": "0.0.0",
   "private": true,
-  "author": "**",
   "description": "",
-  "type": "module",
+  "author": "**",
+  "sideEffects": false,
   "engines": {
     "node": ">=20.0.0"
   },
@@ -51,6 +52,5 @@
     "typescript": "catalog:",
     "vite": "^5.4.10"
   },
-  "prettier": "@acme/prettier-config",
-  "sideEffects": false
+  "prettier": "@acme/prettier-config"
 }

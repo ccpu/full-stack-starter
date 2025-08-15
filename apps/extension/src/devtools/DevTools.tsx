@@ -1,4 +1,4 @@
-export const DevTools = () => {
+export function DevTools () {
   const link = 'https://github.com/guocaoyi/create-chrome-ext';
 
   return (
@@ -9,6 +9,6 @@ export const DevTools = () => {
       </a>
     </main>
   );
-};
+}
 
 export default DevTools;

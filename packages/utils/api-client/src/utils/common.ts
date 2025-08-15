@@ -1,10 +1,26 @@
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
+import process from 'node:process';
+
+interface PackageJsonConfig {
+  name: string;
+  private: boolean;
+  version: string;
+  type: 'module';
+  exports: {
+    [key: string]: string;
+  };
+  license: string;
+  scripts: Record<string, string>;
+  dependencies: Record<string, string>;
+  devDependencies: Record<string, string>;
+  prettier: string;
+}
 
 /**
  * Get package.json structure for generated API client package
  */
-export const getPackageJson = (packageName: string) => {
+export function getPackageJson(packageName: string): PackageJsonConfig {
   return {
     name: packageName,
     private: true,
@@ -36,28 +52,28 @@ export const getPackageJson = (packageName: string) => {
     },
     prettier: '@acme/prettier-config',
   };
-};
+}
 
 /**
  * Check if swagger file has changed by comparing content
  */
-export const isSwaggerFileChanged = (sourceFile: string, targetFile: string): boolean => {
+export function isSwaggerFileChanged(sourceFile: string, targetFile: string): boolean {
   if (!fs.existsSync(targetFile)) return true;
 
   const sourceContent = fs.readFileSync(sourceFile, 'utf8');
   const targetContent = fs.readFileSync(targetFile, 'utf8');
 
   return sourceContent !== targetContent;
-};
+}
 
 /**
  * Get absolute path from project root
  */
-export const resolveFromRoot = (relativePath: string): string => {
+export function resolveFromRoot(relativePath: string): string {
   // If we're running from the scripts directory, go up one level
   const currentDir = process.cwd();
   const projectRoot = currentDir.endsWith('scripts')
     ? path.dirname(currentDir)
     : currentDir;
   return path.resolve(projectRoot, relativePath);
-};
+}

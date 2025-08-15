@@ -4,15 +4,15 @@
     "@acme/tsconfig/nativewind.json"
   ],
   "compilerOptions": {
-    "baseUrl": ".",
     "jsx": "react-native",
-    "checkJs": false,
+    "baseUrl": ".",
     "moduleSuffixes": [
       ".ios",
       ".android",
       ".native",
       ""
-    ]
+    ],
+    "checkJs": false
   },
   "include": [
     "src",

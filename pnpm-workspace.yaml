@@ -5,27 +5,30 @@ packages:
   - packages/utils/*
   - tooling/*
   - api/*
+
 catalog:
-  eslint: ^9.28.0
-  prettier: ^3.6.0
-  tailwindcss: ^3.4.15
-  nativewind: ~4.1.23
-  typescript: ^5.8.3
-  react: 19.0.0
-  react-dom: 19.0.0
-  zod: ^3.25.49
-  postcss: ^8.5.4
+  '@babel/core': ^7.27.4
+  '@pixpilot/dev-config': ^1.6.1
+  '@types/jest': ^29.5.14
+  '@types/node': ^22.15.29
   '@types/react': ^19.1.6
   '@types/react-dom': ^19.1.5
-  '@types/node': ^22.15.29
-  '@babel/core': ^7.27.4
   autoprefixer: ^10.4.21
+  eslint: ^9.33.0
   jest: ^29.7.0
+  nativewind: ~4.1.23
+  postcss: ^8.5.4
+  prettier: ^3.6.0
+  react: 19.0.0
+  react-dom: 19.0.0
+  tailwindcss: ^3.4.15
   ts-jest: ^29.2.5
-  '@types/jest': ^29.5.14
-  '@pixpilot/dev-config': ^1.6.1
+  typescript: ^5.8.3
+  zod: ^3.25.49
+
 ignoredBuiltDependencies:
   - unrs-resolver
+
 onlyBuiltDependencies:
   - '@nestjs/core'
   - '@pixpilot/dev-config'

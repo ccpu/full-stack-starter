@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { Button } from '../components/Button';
 
-export const Popup = () => {
+export function Popup() {
   const [count, setCount] = useState(0);
 
   const minus = () => {
@@ -18,8 +18,10 @@ export const Popup = () => {
   }, []);
 
   useEffect(() => {
-    void chrome.storage.sync.set({ count });
-    void chrome.runtime.sendMessage({ type: 'COUNT', count });
+    // eslint-disable-next-line ts/no-floating-promises
+    chrome.storage.sync.set({ count });
+    // eslint-disable-next-line ts/no-floating-promises
+    chrome.runtime.sendMessage({ type: 'COUNT', count });
   }, [count]);
 
   return (
@@ -42,4 +44,4 @@ export const Popup = () => {
       </div>
     </div>
   );
-};
+}

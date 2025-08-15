@@ -3,6 +3,11 @@ import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { HealthCheckService, MemoryHealthIndicator } from '@nestjs/terminus';
 import { Throttle } from '@nestjs/throttler';
 
+// eslint-disable-next-line no-magic-numbers
+const ONE_GB = 1024 * 1024 * 1024;
+// eslint-disable-next-line no-magic-numbers
+const TWO_GB = 2048 * 1024 * 1024;
+
 @ApiTags('health')
 @Controller('health')
 export class HealthController {
@@ -17,13 +22,13 @@ export class HealthController {
   @ApiResponse({ status: 200, description: 'Service is available' })
   @ApiResponse({ status: 503, description: 'Service is unavailable' })
   @ApiResponse({ status: 429, description: 'Too many requests' })
-  async check() {
+  async check(): Promise<{ status: string }> {
     try {
       await this.health.check([
         // Check that we don't use more than 1GB heap memory (generous limit)
-        () => this.memory.checkHeap('memory_heap', 1024 * 1024 * 1024),
+        async () => this.memory.checkHeap('memory_heap', ONE_GB),
         // Check that we don't use more than 2GB RSS memory (generous limit)
-        () => this.memory.checkRSS('memory_rss', 2048 * 1024 * 1024),
+        async () => this.memory.checkRSS('memory_rss', TWO_GB),
         // Note: Disk check removed for compatibility - can be added back with proper configuration
       ]);
 

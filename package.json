@@ -1,11 +1,11 @@
 {
   "name": "full-stack-starter",
   "private": true,
+  "packageManager": "pnpm@10.14.0",
   "engines": {
     "node": ">=22.14.0",
     "pnpm": ">=9.6.0"
   },
-  "packageManager": "pnpm@10.14.0",
   "scripts": {
     "build": "turbo run build",
     "native": "cd apps/expo && pnpm dev",

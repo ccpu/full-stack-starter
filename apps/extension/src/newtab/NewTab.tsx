@@ -1,7 +1,9 @@
 import { ReactNativeComponent } from '@acme/ui';
 import { useEffect, useState } from 'react';
 
-export const NewTab = () => {
+const ONE_SECOND_MS = 1000;
+
+export function NewTab() {
   const getTime = () => {
     const date = new Date();
     const hour = String(date.getHours()).padStart(2, '0');
@@ -9,13 +11,13 @@ export const NewTab = () => {
     return `${hour}:${minute}`;
   };
 
-  const [time, setTime] = useState(getTime());
+  const [time, setTime] = useState(() => getTime());
   const link = 'https://github.com/guocaoyi/create-chrome-ext';
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       setTime(getTime());
-    }, 1000);
+    }, ONE_SECOND_MS);
 
     return () => {
       clearInterval(intervalId);
@@ -38,6 +40,6 @@ export const NewTab = () => {
       <ReactNativeComponent />
     </section>
   );
-};
+}
 
 export default NewTab;

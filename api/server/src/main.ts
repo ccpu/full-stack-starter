@@ -1,5 +1,6 @@
-import { writeFileSync } from 'fs';
-import { join } from 'path';
+import { writeFileSync } from 'node:fs';
+import { join } from 'node:path';
+import process from 'node:process';
 
 import { NestFactory } from '@nestjs/core';
 import { FastifyAdapter } from '@nestjs/platform-fastify';
@@ -43,12 +44,13 @@ async function bootstrap() {
   const appHost = config.getHost();
   const appUrl = `http://${appHost}:${port}`;
 
-  console.warn('┌' + '─'.repeat(44) + '┐');
+  const BOX_WIDTH = 44;
+  console.warn(`┌${'─'.repeat(BOX_WIDTH)}┐`);
   console.warn(`│ Application: ${appUrl}/api    │`);
   if (env.NODE_ENV !== 'production') {
     console.warn(`│     Swagger: ${appUrl}/docs   │`);
   }
-  console.warn('└' + '─'.repeat(44) + '┘');
+  console.warn(`└${'─'.repeat(BOX_WIDTH)}┘`);
 }
 
 bootstrap().catch((err) => {

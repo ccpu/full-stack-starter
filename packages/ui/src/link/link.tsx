@@ -1,6 +1,5 @@
 import { router } from 'expo-router';
 import NextLink from 'next/link';
-import { forwardRef } from 'react';
 import { Platform, Pressable, Text } from 'react-native';
 
 export interface LinkProps {
@@ -14,8 +13,7 @@ export interface LinkProps {
   };
 }
 
-export const Link = forwardRef<React.ElementRef<typeof Pressable>, LinkProps>(
-  ({ href, children, className, target, hrefAttrs, ...props }, ref) => {
+export function Link ({ ref, href, children, className, target, hrefAttrs, ...props }: LinkProps & { ref?: React.RefObject<React.ElementRef<typeof Pressable> | null> }) {
     if (Platform.OS === 'web') {
       return (
         <NextLink
@@ -45,7 +43,6 @@ export const Link = forwardRef<React.ElementRef<typeof Pressable>, LinkProps>(
         )}
       </Pressable>
     );
-  },
-);
+  }
 
 Link.displayName = 'Link';
