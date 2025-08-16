@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 
-import './Options.css';
-
 interface ChromeMessage {
   type: string;
   count?: number;

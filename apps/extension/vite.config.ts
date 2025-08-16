@@ -4,10 +4,11 @@ import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import reactNativeWeb from 'vite-plugin-react-native-web';
 
-import manifest from './src/manifest';
+import { getManifest } from './src/manifest';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
+  const isDev = mode === 'development';
   return {
     build: {
       emptyOutDir: true,
@@ -38,7 +39,7 @@ export default defineConfig(({ mode }) => {
         },
       }),
       reactNativeWeb(),
-      crx({ manifest }),
+      crx({ manifest: getManifest(isDev) }),
     ],
     optimizeDeps: {
       force: true,
