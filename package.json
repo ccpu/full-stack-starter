@@ -30,6 +30,7 @@
     "fix:all": "pnpm format:fix && pnpm lint:fix",
     "postinstall": "pnpm lint:ws",
     "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
     "clean:packages": "node scripts/cleanup-node-modules.js",
     "clean:packages:install": "pnpm clean:packages && pnpm install",
     "clean:workspaces": "turbo run clean",
