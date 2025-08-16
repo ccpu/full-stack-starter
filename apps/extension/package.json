@@ -37,11 +37,11 @@
     "@internal/tailwind-config": "workspace:*",
     "@internal/tsconfig": "workspace:*",
     "@internal/ui": "workspace:*",
-    "@types/chrome": "^0.0.326",
+    "@types/chrome": "^0.1.4",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@types/react-native-web": "^0.19.2",
-    "@vitejs/plugin-react": "^4.7.0",
+    "@vitejs/plugin-react": "^5.0.0",
     "autoprefixer": "^10.4.21",
     "eslint": "catalog:",
     "gulp": "^5.0.1",
@@ -50,7 +50,7 @@
     "prettier": "catalog:",
     "tailwindcss": "catalog:",
     "typescript": "catalog:",
-    "vite": "^5.4.19"
+    "vite": "^7.1.2"
   },
   "prettier": "@internal/prettier-config"
 }
