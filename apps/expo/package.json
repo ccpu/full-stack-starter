@@ -18,7 +18,7 @@
   "dependencies": {
     "@internal/app": "workspace:*",
     "expo": "^53.0.20",
-    "expo-router": "5.1.0",
+    "expo-router": "5.1.4",
     "expo-status-bar": "~2.2.3",
     "nativewind": "catalog:",
     "react": "catalog:",
