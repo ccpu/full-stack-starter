@@ -1,4 +1,4 @@
-import { ThemeToggle } from '@acme/ui';
+import { ThemeToggle } from '@internal/ui';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 

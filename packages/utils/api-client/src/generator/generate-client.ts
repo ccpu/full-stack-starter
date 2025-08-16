@@ -40,7 +40,7 @@ export function generateClientApi(srcSwaggerJsonFile: string, force = false): vo
 
   const clientApiSourceDir = clientApiDir;
 
-  const packageName = `@acme/api-client`;
+  const packageName = `@internal/api-client`;
   const isClientApiDirExist = fs.existsSync(clientApiDir);
 
   if (isClientApiDirExist) {
@@ -91,7 +91,7 @@ export function generateClientApi(srcSwaggerJsonFile: string, force = false): vo
 
   // Create TypeScript config
   const tsConfigContent = {
-    extends: '@acme/tsconfig/base.json',
+    extends: '@internal/tsconfig/base.json',
     compilerOptions: {
       outDir: 'dist',
       rootDir: 'src',
@@ -106,7 +106,7 @@ export function generateClientApi(srcSwaggerJsonFile: string, force = false): vo
   );
 
   // Create ESLint config
-  const eslintConfigContent = `import baseConfig from "@acme/eslint-config/base";
+  const eslintConfigContent = `import baseConfig from "@internal/eslint-config/base";
 
 /** @type {import('typescript-eslint').Config} */
 export default [

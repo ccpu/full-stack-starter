@@ -90,7 +90,7 @@ pnpm generate:api-client
 # api/client/api-documentation/
 
 # Import in your code:
-import { AppApi } from '@acme/api-client';
+import { AppApi } from '@internal/api-client';
 ```
 
 ## Troubleshooting

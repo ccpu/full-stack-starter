@@ -1,4 +1,4 @@
-import { ReactNativeComponent } from '@acme/ui';
+import { ReactNativeComponent } from '@internal/ui';
 import { useEffect, useState } from 'react';
 
 const ONE_SECOND_MS = 1000;

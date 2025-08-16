@@ -1,5 +1,5 @@
 {
-  "extends": ["@acme/tsconfig/base.json", "@acme/tsconfig/nativewind.json"],
+  "extends": ["@internal/tsconfig/base.json", "@internal/tsconfig/nativewind.json"],
   "compilerOptions": {
     "jsx": "preserve",
     "jsxImportSource": "nativewind",

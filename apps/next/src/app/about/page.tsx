@@ -3,7 +3,7 @@
  */
 'use client';
 
-import { AboutScreen } from '@acme/app';
+import { AboutScreen } from '@internal/app';
 
 export default function AboutPage() {
   return <AboutScreen />;

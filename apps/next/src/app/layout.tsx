@@ -1,4 +1,4 @@
-import { ThemeProvider, ThemeToggle } from '@acme/ui';
+import { ThemeProvider, ThemeToggle } from '@internal/ui';
 
 import './global.css';
 

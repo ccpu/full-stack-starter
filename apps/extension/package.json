@@ -1,5 +1,5 @@
 {
-  "name": "@acme/extension",
+  "name": "@internal/extension",
   "displayName": "extension",
   "type": "module",
   "version": "0.0.0",
@@ -22,7 +22,7 @@
     "zip": "pnpm build && node src/zip.js"
   },
   "dependencies": {
-    "@acme/app": "workspace:*",
+    "@internal/app": "workspace:*",
     "clsx": "^2.1.1",
     "nativewind": "catalog:",
     "react": "catalog:",
@@ -30,13 +30,13 @@
     "vite-plugin-react-native-web": "^2.1.1"
   },
   "devDependencies": {
-    "@acme/eslint-config": "workspace:*",
-    "@acme/prettier-config": "workspace:*",
-    "@acme/tailwind-config": "workspace:*",
-    "@acme/tsconfig": "workspace:*",
-    "@acme/ui": "workspace:*",
     "@babel/core": "catalog:",
     "@crxjs/vite-plugin": "^2.0.2",
+    "@internal/eslint-config": "workspace:*",
+    "@internal/prettier-config": "workspace:*",
+    "@internal/tailwind-config": "workspace:*",
+    "@internal/tsconfig": "workspace:*",
+    "@internal/ui": "workspace:*",
     "@types/chrome": "^0.0.326",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
@@ -52,5 +52,5 @@
     "typescript": "catalog:",
     "vite": "^5.4.10"
   },
-  "prettier": "@acme/prettier-config"
+  "prettier": "@internal/prettier-config"
 }

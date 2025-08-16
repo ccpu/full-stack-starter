@@ -1,11 +1,11 @@
-@import '@acme/tailwind-config/theme.css';
+@import '@internal/tailwind-config/theme.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /**
  * Base layer for theme customization.
- * While core theme variables are imported from @acme/tailwind-config/theme.css,
+ * While core theme variables are imported from @internal/tailwind-config/theme.css,
  * we still need this layer for manual theme class toggling (.dark/.light)
  */
 :root {

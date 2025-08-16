@@ -5,17 +5,16 @@
 If a user reports TypeScript errors related to `className` props in React Native components (using NativeWind), or if you discover such errors, follow these steps:
 
 1. Check if the package is extending the NativeWind TypeScript configuration:
-
    - Look in the package's `tsconfig.json`
-   - It should extend `@acme/tsconfig/nativewind.json`
-   - Example: `"extends": ["@acme/tsconfig/internal-package.json", "@acme/tsconfig/nativewind.json"]`
+   - It should extend `@internal/tsconfig/nativewind.json`
+   - Example: `"extends": ["@internal/tsconfig/internal-package.json", "@internal/tsconfig/nativewind.json"]`
 
 2. If not, update the package's `tsconfig.json` to extend the NativeWind configuration:
    ```json
    {
      "extends": [
-       "@acme/tsconfig/internal-package.json",
-       "@acme/tsconfig/nativewind.json"
+       "@internal/tsconfig/internal-package.json",
+       "@internal/tsconfig/nativewind.json"
      ]
      // rest of config...
    }

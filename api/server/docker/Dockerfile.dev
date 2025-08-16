@@ -7,7 +7,7 @@ FROM base AS build
 COPY . /usr/src/app
 WORKDIR /usr/src/app
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile --ignore-scripts
-RUN pnpm run build --filter=@acme/server
+RUN pnpm run build --filter=@internal/server
 
 FROM base AS production
 WORKDIR /usr/src/app

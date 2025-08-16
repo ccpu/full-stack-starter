@@ -1,4 +1,4 @@
-# @acme/api-client
+# @internal/api-client
 
 This package provides a TypeScript/JavaScript API client generated from your OpenAPI spec. It uses the [Fetch API](https://fetch.spec.whatwg.org/) and is suitable for use in:
 
@@ -25,7 +25,7 @@ This will use the OpenAPI spec to generate the latest client code in this packag
 Use **pnpm** to install this package in your project:
 
 ```
-pnpm add @acme/api-client
+pnpm add @internal/api-client
 ```
 
 If you want to use a local unpublished version:
@@ -57,7 +57,7 @@ pnpm publish --access public
 Below is an example of how to use the generated API client in your project:
 
 ```ts
-import { AppApi, Configuration } from '@acme/api-client';
+import { AppApi, Configuration } from '@internal/api-client';
 
 // Create a configuration (optional)
 const config = new Configuration({

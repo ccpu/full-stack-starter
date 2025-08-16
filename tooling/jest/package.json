@@ -1,5 +1,5 @@
 {
-  "name": "@acme/jest",
+  "name": "@internal/jest",
   "version": "0.0.0",
   "private": true,
   "packageManager": "pnpm@10.12.2",
@@ -15,14 +15,14 @@
     "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
   },
   "devDependencies": {
-    "@acme/eslint-config": "workspace:*",
-    "@acme/prettier-config": "workspace:*",
-    "@acme/tsconfig": "workspace:*",
+    "@internal/eslint-config": "workspace:*",
+    "@internal/prettier-config": "workspace:*",
+    "@internal/tsconfig": "workspace:*",
     "@pixpilot/dev-config": "catalog:",
     "@types/jest": "catalog:",
     "@types/node": "catalog:",
     "jest": "catalog:",
     "ts-jest": "catalog:"
   },
-  "prettier": "@acme/prettier-config"
+  "prettier": "@internal/prettier-config"
 }

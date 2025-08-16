@@ -1,6 +1,6 @@
-# @acme/server
+# @internal/server
 
-This is the NestJS server for the Acme full-stack starter project. It uses Fastify as the HTTP server and provides a REST API with Swagger documentation.
+This is the NestJS server for the full-stack starter project. It uses Fastify as the HTTP server and provides a REST API with Swagger documentation.
 
 ## Running Locally
 

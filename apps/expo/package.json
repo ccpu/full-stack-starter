@@ -1,5 +1,5 @@
 {
-  "name": "@acme/expo",
+  "name": "@internal/expo",
   "version": "1.0.0",
   "private": true,
   "sideEffects": false,
@@ -16,7 +16,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@acme/app": "workspace:*",
+    "@internal/app": "workspace:*",
     "expo": "^53.0.11",
     "expo-router": "5.1.0",
     "expo-status-bar": "~2.2.3",
@@ -28,16 +28,16 @@
     "react-native-safe-area-context": "5.4.1"
   },
   "devDependencies": {
-    "@acme/eslint-config": "workspace:*",
-    "@acme/prettier-config": "workspace:*",
-    "@acme/tailwind-config": "workspace:*",
-    "@acme/tsconfig": "workspace:*",
     "@babel/core": "^7.27.4",
+    "@internal/eslint-config": "workspace:*",
+    "@internal/prettier-config": "workspace:*",
+    "@internal/tailwind-config": "workspace:*",
+    "@internal/tsconfig": "workspace:*",
     "@types/react": "catalog:",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "tailwindcss": "catalog:",
     "typescript": "catalog:"
   },
-  "prettier": "@acme/prettier-config"
+  "prettier": "@internal/prettier-config"
 }

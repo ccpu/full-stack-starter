@@ -1,5 +1,5 @@
 {
-  "name": "@acme/server",
+  "name": "@internal/server",
   "type": "commonjs",
   "version": "0.1.0",
   "private": true,
@@ -39,10 +39,10 @@
     "rxjs": "^7.8.2"
   },
   "devDependencies": {
-    "@acme/eslint-config": "workspace:*",
-    "@acme/jest": "workspace:*",
-    "@acme/prettier-config": "workspace:*",
-    "@acme/tsconfig": "workspace:*",
+    "@internal/eslint-config": "workspace:*",
+    "@internal/jest": "workspace:*",
+    "@internal/prettier-config": "workspace:*",
+    "@internal/tsconfig": "workspace:*",
     "@nestjs/cli": "^11.0.7",
     "@nestjs/schematics": "^11.0.5",
     "@nestjs/testing": "^11.1.3",
@@ -57,5 +57,5 @@
     "tsconfig-paths": "^4.2.0",
     "typescript": "catalog:"
   },
-  "prettier": "@acme/prettier-config"
+  "prettier": "@internal/prettier-config"
 }

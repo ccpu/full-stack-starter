@@ -1,5 +1,5 @@
 {
-  "name": "@acme/nextjs",
+  "name": "@internal/nextjs",
   "type": "module",
   "version": "0.1.0",
   "private": true,
@@ -15,9 +15,9 @@
     "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
-    "@acme/app": "workspace:*",
-    "@acme/ui": "workspace:*",
     "@expo/next-adapter": "6.0.0",
+    "@internal/app": "workspace:*",
+    "@internal/ui": "workspace:*",
     "@t3-oss/env-nextjs": "^0.13.8",
     "next": "15.3.3",
     "next-themes": "^0.4.6",
@@ -26,10 +26,10 @@
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@acme/eslint-config": "workspace:*",
-    "@acme/prettier-config": "workspace:*",
-    "@acme/tailwind-config": "workspace:*",
-    "@acme/tsconfig": "workspace:*",
+    "@internal/eslint-config": "workspace:*",
+    "@internal/prettier-config": "workspace:*",
+    "@internal/tailwind-config": "workspace:*",
+    "@internal/tsconfig": "workspace:*",
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
@@ -40,5 +40,5 @@
     "tailwindcss": "catalog:",
     "typescript": "catalog:"
   },
-  "prettier": "@acme/prettier-config"
+  "prettier": "@internal/prettier-config"
 }

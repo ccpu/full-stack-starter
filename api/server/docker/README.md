@@ -1,4 +1,4 @@
-# 🐳 Docker & Security Guide for @acme/server
+# 🐳 Docker & Security Guide for @internal/server
 
 This guide explains how to build, run, and secure the NestJS API server using Docker. Follow these steps from the root of the repository.
 
@@ -8,14 +8,14 @@ This guide explains how to build, run, and secure the NestJS API server using Do
 
 ```sh
 # Build the production Docker image
-docker build --rm -f api/server/docker/Dockerfile.prod -t acme-server:latest .
+docker build --rm -f api/server/docker/Dockerfile.prod -t app-server:latest .
 ```
 
 ## Run the Docker Container
 
 ```sh
 # Run the container, mapping port 3000 on your host to the container
-docker run -p 3000:3000 -e PORT=3000 acme-server:latest
+docker run -p 3000:3000 -e PORT=3000 app-server:latest
 ```
 
 - The server will be available at [http://localhost:3000](http://localhost:3000) by default.
@@ -26,7 +26,7 @@ docker run -p 3000:3000 -e PORT=3000 acme-server:latest
 You can pass additional environment variables using the `-e` flag. For example:
 
 ```sh
-docker run -p 3000:3000 -e PORT=3000 -e NODE_ENV=production acme-server:latest
+docker run -p 3000:3000 -e PORT=3000 -e NODE_ENV=production app-server:latest
 ```
 
 ---
@@ -74,7 +74,7 @@ docker run \
   --tmpfs /var/tmp \
   -p 3000:49252 \
   --name nestjs-server \
-  acme-server:latest
+  app-server:latest
 ```
 
 **Flags explained:**
@@ -91,7 +91,7 @@ docker run \
 version: '3.8'
 services:
   nestjs-server:
-    image: acme-server:latest
+    image: app-server:latest
     security_opt:
       - no-new-privileges:true
     cap_drop:
@@ -120,9 +120,9 @@ rm .npmrc-secret
 
 ```sh
 # Scan for vulnerabilities
-docker scout cves acme-server:latest
+docker scout cves app-server:latest
 # or
-trivy image acme-server:latest
+trivy image app-server:latest
 ```
 
 ## Additional Security Recommendations
@@ -143,4 +143,4 @@ trivy image acme-server:latest
 
 ---
 
-_This guide is for the `@acme/server` package. For other services, see their respective Docker guides._
+_This guide is for the `@internal/server` package. For other services, see their respective Docker guides._

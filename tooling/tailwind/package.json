@@ -1,5 +1,5 @@
 {
-  "name": "@acme/tailwind-config",
+  "name": "@internal/tailwind-config",
   "type": "module",
   "version": "0.1.0",
   "private": true,
@@ -22,12 +22,12 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@acme/eslint-config": "workspace:*",
-    "@acme/tsconfig": "*",
+    "@internal/eslint-config": "workspace:*",
+    "@internal/tsconfig": "*",
     "@types/node": "catalog:",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"
   },
-  "prettier": "@acme/prettier-config"
+  "prettier": "@internal/prettier-config"
 }

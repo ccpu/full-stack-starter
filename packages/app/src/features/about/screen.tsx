@@ -1,4 +1,4 @@
-import { Container, HomeNavButton } from '@acme/ui';
+import { Container, HomeNavButton } from '@internal/ui';
 import { Text, View } from 'react-native';
 
 interface ScreenContentProps {

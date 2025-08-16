@@ -43,14 +43,14 @@ export function getPackageJson(packageName: string): PackageJsonConfig {
       'whatwg-fetch': '^3.6.2',
     },
     devDependencies: {
-      '@acme/eslint-config': 'workspace:*',
-      '@acme/prettier-config': 'workspace:*',
-      '@acme/tsconfig': 'workspace:*',
+      '@internal/eslint-config': 'workspace:*',
+      '@internal/prettier-config': 'workspace:*',
+      '@internal/tsconfig': 'workspace:*',
       eslint: 'catalog:',
       prettier: 'catalog:',
       typescript: 'catalog:',
     },
-    prettier: '@acme/prettier-config',
+    prettier: '@internal/prettier-config',
   };
 }
 

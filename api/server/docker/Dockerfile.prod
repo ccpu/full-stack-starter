@@ -32,7 +32,7 @@ WORKDIR /usr/src/app
 # Build the common utils package first
 RUN pnpm --filter=@utils/common build
 # Then build the server
-RUN pnpm --filter=@acme/server build
+RUN pnpm --filter=@internal/server build
 
 # ---------- Production dependencies ----------
 FROM workspace AS prod-deps

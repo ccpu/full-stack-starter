@@ -1,4 +1,4 @@
-@import '@acme/tailwind-config/theme.web.css';
+@import '@internal/tailwind-config/theme.web.css';
 
 /* React Native Web base styles */
 body,

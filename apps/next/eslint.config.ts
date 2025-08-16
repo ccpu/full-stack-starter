@@ -1,6 +1,6 @@
-import baseConfig, { restrictEnvAccess } from '@acme/eslint-config/base';
-import nextjsConfig from '@acme/eslint-config/nextjs';
-import reactConfig from '@acme/eslint-config/react';
+import baseConfig, { restrictEnvAccess } from '@internal/eslint-config/base';
+import nextjsConfig from '@internal/eslint-config/nextjs';
+import reactConfig from '@internal/eslint-config/react';
 import { Config } from 'typescript-eslint';
 
 const config: Config = [

@@ -1,3 +1,3 @@
-const jestConfig = require('@acme/jest');
+const jestConfig = require('@internal/jest');
 
 module.exports = jestConfig;

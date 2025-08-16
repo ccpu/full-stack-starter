@@ -38,7 +38,7 @@ pnpm web           # Start Next.js dev server
 
 ### 🏷️ Package Naming Convention
 
-In this template, we use `@acme` as a placeholder for package names. As a user, you might want to replace it with your own organization or project name.
+In this template, we use `@internal` as a placeholder for package names. As a user, you might want to replace it with your own organization or project name.
 
 ## 📱 Expo
 
@@ -108,10 +108,10 @@ You can build and run the NestJS API server using Docker:
 
 ```bash
 # Build the Docker image (from project root)
-docker build -f api/server/docker/Dockerfile.prod -t acme-server:latest .
+docker build -f api/server/docker/Dockerfile.prod -t app-server:latest .
 
 # Run the Docker container
-docker run -p 3000:3000 -e PORT=3000 acme-server:latest
+docker run -p 3000:3000 -e PORT=3000 app-server:latest
 ```
 
 > **For detailed Docker instructions and security notes, see [`api/server/docker/README.md`](api/server/docker/README.md).**

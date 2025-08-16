@@ -4,10 +4,10 @@ This Chrome extension is part of the SaaS Lens monorepo and demonstrates how to 
 
 ## Features
 
-- ✅ **Shared TypeScript Configuration**: Uses `@acme/tsconfig` for consistent TypeScript settings
-- ✅ **Shared ESLint Configuration**: Uses `@acme/eslint-config` for consistent code quality
-- ✅ **Shared Prettier Configuration**: Uses `@acme/prettier-config` for consistent code formatting
-- ✅ **Tailwind CSS**: Uses `@acme/tailwind-config/web` for consistent styling
+- ✅ **Shared TypeScript Configuration**: Uses `@internal/tsconfig` for consistent TypeScript settings
+- ✅ **Shared ESLint Configuration**: Uses `@internal/eslint-config` for consistent code quality
+- ✅ **Shared Prettier Configuration**: Uses `@internal/prettier-config` for consistent code formatting
+- ✅ **Tailwind CSS**: Uses `@internal/tailwind-config/web` for consistent styling
 - ✅ **Modern Build System**: Vite with TypeScript and React support
 - ✅ **Chrome Extension APIs**: Full access to Chrome extension APIs with proper TypeScript types
 - ✅ **Shared Components**: Can use shared UI components compatible with the web platform
@@ -18,7 +18,7 @@ The extension is configured to work seamlessly with the monorepo's shared toolin
 
 ### TypeScript Configuration
 
-- Extends `@acme/tsconfig/base.json` for consistent TypeScript settings
+- Extends `@internal/tsconfig/base.json` for consistent TypeScript settings
 - Includes Chrome extension types for proper API support
 - Configured for React JSX with modern settings
 
@@ -37,7 +37,7 @@ The extension is configured to work seamlessly with the monorepo's shared toolin
 
 ### Package Management
 
-- Uses workspace dependencies (`@acme/*`) for shared tooling
+- Uses workspace dependencies (`@internal/*`) for shared tooling
 - Uses catalog dependencies for consistent versions across the monorepo
 
 ## Development
@@ -88,5 +88,5 @@ This extension demonstrates how to:
 ## Notes
 
 - The extension uses regular Tailwind CSS instead of NativeWind since it runs in a browser environment
-- Shared components from `@acme/ui` that depend on React Native are not compatible with browser extensions
+- Shared components from `@internal/ui` that depend on React Native are not compatible with browser extensions
 - Chrome extension APIs are properly typed and available throughout the codebase
