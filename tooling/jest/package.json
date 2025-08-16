@@ -2,7 +2,7 @@
   "name": "@internal/jest",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@10.12.2",
+  "packageManager": "pnpm@10.14.0",
   "author": "",
   "license": "MIT",
   "keywords": [],

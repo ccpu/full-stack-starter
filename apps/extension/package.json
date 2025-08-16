@@ -27,11 +27,11 @@
     "nativewind": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "vite-plugin-react-native-web": "^2.1.1"
+    "vite-plugin-react-native-web": "^2.2.1"
   },
   "devDependencies": {
     "@babel/core": "catalog:",
-    "@crxjs/vite-plugin": "^2.0.2",
+    "@crxjs/vite-plugin": "^2.1.0",
     "@internal/eslint-config": "workspace:*",
     "@internal/prettier-config": "workspace:*",
     "@internal/tailwind-config": "workspace:*",
@@ -40,8 +40,8 @@
     "@types/chrome": "^0.0.326",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
-    "@types/react-native-web": "^0.19.1",
-    "@vitejs/plugin-react": "^4.5.2",
+    "@types/react-native-web": "^0.19.2",
+    "@vitejs/plugin-react": "^4.7.0",
     "autoprefixer": "^10.4.21",
     "eslint": "catalog:",
     "gulp": "^5.0.1",
@@ -50,7 +50,7 @@
     "prettier": "catalog:",
     "tailwindcss": "catalog:",
     "typescript": "catalog:",
-    "vite": "^5.4.10"
+    "vite": "^5.4.19"
   },
   "prettier": "@internal/prettier-config"
 }

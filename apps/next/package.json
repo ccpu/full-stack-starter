@@ -35,7 +35,7 @@
     "@types/react-dom": "catalog:",
     "autoprefixer": "^10.4.21",
     "dotenv-cli": "^8.0.0",
-    "jiti": "^2.4.2",
+    "jiti": "^2.5.1",
     "prettier": "catalog:",
     "tailwindcss": "catalog:",
     "typescript": "catalog:"
