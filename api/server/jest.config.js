@@ -1,11 +1,3 @@
-module.exports = {
-  preset: 'ts-jest',
-  testEnvironment: 'node',
-  testMatch: [
-    '<rootDir>/test/**/*.spec.ts',
-    '<rootDir>/test/**/*.e2e-spec.ts',
-  ],
-  transform: {
-    '^.+\\.ts$': 'ts-jest',
-  },
-};
+const jestConfig = require('@acme/jest');
+
+module.exports = jestConfig;

@@ -32,7 +32,7 @@ export const restrictEnvAccess = tseslint.config(
 
 // eslint-disable-next-line antfu/no-top-level-await
 const baseConfig = await defineConfig(
-  { type: 'app', turbo: true },
+  { type: 'app', turbo: true, test: true },
   { ignores: ['**/*.config.*'] },
   {
     files: ['**/*.js', '**/*.ts', '**/*.tsx'],

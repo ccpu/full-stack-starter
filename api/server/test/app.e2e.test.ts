@@ -6,6 +6,7 @@ import request from 'supertest';
 
 import { AppModule } from './../src/app.module';
 
+// eslint-disable-next-line test/prefer-lowercase-title
 describe('AppController (e2e)', () => {
   let app: INestApplication<App>;
 
