@@ -13,6 +13,9 @@ import {
   resolveFromRoot,
 } from '../utils/index.js';
 
+// Constants
+const JSON_INDENT_SPACES = 2;
+
 export function generateClientApi(srcSwaggerJsonFile: string, force = false): void {
   const swaggerFilePath = path.isAbsolute(srcSwaggerJsonFile)
     ? srcSwaggerJsonFile
@@ -69,7 +72,7 @@ export function generateClientApi(srcSwaggerJsonFile: string, force = false): vo
   // Create package.json
   fs.writeFileSync(
     `${clientApiDir}/package.json`,
-    JSON.stringify(getPackageJson(packageName), undefined, 2),
+    JSON.stringify(getPackageJson(packageName), undefined, JSON_INDENT_SPACES),
   );
 
   // Copy swagger file
@@ -102,7 +105,7 @@ export function generateClientApi(srcSwaggerJsonFile: string, force = false): vo
 
   fs.writeFileSync(
     `${clientApiDir}/tsconfig.json`,
-    JSON.stringify(tsConfigContent, undefined, 2),
+    JSON.stringify(tsConfigContent, undefined, JSON_INDENT_SPACES),
   );
 
   // Create ESLint config

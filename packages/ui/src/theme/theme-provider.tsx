@@ -16,5 +16,3 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
     </NextThemeProvider>
   );
 }
-
-export { useTheme } from 'next-themes';

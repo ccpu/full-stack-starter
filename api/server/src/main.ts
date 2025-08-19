@@ -11,6 +11,9 @@ import config from '../config/defaults.cjs';
 import { AppModule } from './app.module';
 import { env } from './env';
 
+// Constants
+const JSON_INDENT_SPACES = 2;
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, new FastifyAdapter());
 
@@ -26,7 +29,7 @@ async function bootstrap() {
     const document = SwaggerModule.createDocument(app, swaggerConfig);
 
     // Save Swagger JSON to root directory
-    const swaggerJson = JSON.stringify(document, null, 2);
+    const swaggerJson = JSON.stringify(document, null, JSON_INDENT_SPACES);
     const rootDir = join(__dirname, '..');
     const swaggerPath = join(rootDir, 'swagger.json');
     writeFileSync(swaggerPath, swaggerJson);

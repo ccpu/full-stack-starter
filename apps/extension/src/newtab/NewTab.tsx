@@ -2,12 +2,13 @@ import { ReactNativeComponent } from '@internal/ui';
 import { useEffect, useState } from 'react';
 
 const ONE_SECOND_MS = 1000;
+const TIME_PADDING_LENGTH = 2;
 
 export function NewTab() {
   const getTime = () => {
     const date = new Date();
-    const hour = String(date.getHours()).padStart(2, '0');
-    const minute = String(date.getMinutes()).padStart(2, '0');
+    const hour = String(date.getHours()).padStart(TIME_PADDING_LENGTH, '0');
+    const minute = String(date.getMinutes()).padStart(TIME_PADDING_LENGTH, '0');
     return `${hour}:${minute}`;
   };
 

@@ -6,6 +6,9 @@ import request from 'supertest';
 
 import { AppModule } from './../src/app.module';
 
+// Constants
+const HTTP_STATUS_OK = 200;
+
 // eslint-disable-next-line test/prefer-lowercase-title
 describe('AppController (e2e)', () => {
   let app: INestApplication<App>;
@@ -24,6 +27,6 @@ describe('AppController (e2e)', () => {
   });
 
   it('/ (GET)', async () => {
-    await request(app.getHttpServer()).get('/').expect(200).expect('Hello World! (1)');
+    await request(app.getHttpServer()).get('/').expect(HTTP_STATUS_OK).expect('Hello World! (1)');
   });
 });
