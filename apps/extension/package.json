@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@babel/core": "catalog:",
-    "@crxjs/vite-plugin": "^2.1.0",
+    "@crxjs/vite-plugin": "^2.2.0",
     "@internal/eslint-config": "workspace:*",
     "@internal/prettier-config": "workspace:*",
     "@internal/tailwind-config": "workspace:*",
