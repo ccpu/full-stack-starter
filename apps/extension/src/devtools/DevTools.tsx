@@ -1,4 +1,4 @@
-export function DevTools () {
+export function DevTools() {
   const link = 'https://github.com/guocaoyi/create-chrome-ext';
 
   return (

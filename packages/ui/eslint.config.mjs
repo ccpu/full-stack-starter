@@ -1,11 +1,11 @@
-import baseConfig from '@internal/eslint-config/base';
 import reactConfig from '@internal/eslint-config/react';
 
 /** @type {import('typescript-eslint').Config} */
-export default [
+const config = [
+  ...reactConfig,
   {
     ignores: ['dist/**', 'index.ts'],
   },
-  ...baseConfig,
-  ...reactConfig,
 ];
+
+export default config;

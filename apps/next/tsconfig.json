@@ -11,6 +11,6 @@
     ],
     "module": "esnext"
   },
-  "include": [".", ".next/types/**/*.ts", "eslint.config.ts", "tailwind.config.ts"],
+  "include": [".", ".next/types/**/*.ts", "*.config.ts"],
   "exclude": ["node_modules"]
 }

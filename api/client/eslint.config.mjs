@@ -1,11 +1,11 @@
-import type { Config } from 'typescript-eslint';
 import baseConfig from '@internal/eslint-config/base';
 
-const config: Config = [
+/** @type {import('typescript-eslint').Config} */
+const config = [
+  ...baseConfig,
   {
     ignores: ['dist/**', 'src/apis/**', 'src/runtime.ts'],
   },
-  ...baseConfig,
 ];
 
 export default config;

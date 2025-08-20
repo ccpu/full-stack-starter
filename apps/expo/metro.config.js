@@ -21,6 +21,8 @@ module.exports = config;
  */
 function withTurborepoManagedCache(config) {
   const modifiedConfig = { ...config };
-  modifiedConfig.cacheStores = [new FileStore({ root: path.join(__dirname, '.cache/metro') })];
+  modifiedConfig.cacheStores = [
+    new FileStore({ root: path.join(__dirname, '.cache/metro') }),
+  ];
   return modifiedConfig;
 }

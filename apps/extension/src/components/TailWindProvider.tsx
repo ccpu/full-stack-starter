@@ -7,7 +7,9 @@ export interface TailWindProviderProps {
   children?: React.ReactNode;
 }
 
-const TailWindProvider: React.FC<TailWindProviderProps> = ({ children }) => <ThemeProvider>{children}</ThemeProvider>;
+const TailWindProvider: React.FC<TailWindProviderProps> = ({ children }) => (
+  <ThemeProvider>{children}</ThemeProvider>
+);
 
 TailWindProvider.displayName = 'TailWindProvider';
 

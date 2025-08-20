@@ -1,7 +1,7 @@
 import baseConfig from '@internal/eslint-config/base';
-import { Config } from 'typescript-eslint';
 
-const config: Config = [
+/** @type {import('typescript-eslint').Config} */
+const config = [
   {
     ignores: [],
   },

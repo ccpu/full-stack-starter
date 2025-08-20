@@ -32,6 +32,7 @@ ignoredBuiltDependencies:
 onlyBuiltDependencies:
   - '@nestjs/core'
   - '@pixpilot/dev-config'
+  - '@pixpilot/eslint-config'
   - '@scarf/scarf'
   - '@swc/core'
   - core-js-pure

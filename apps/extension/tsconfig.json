@@ -18,7 +18,8 @@
   "include": [
     "src",
     "src/nativewind-env.d.ts",
-    "*.config.{ts,js,mjs,cjs}"
+    "tailwind.config.ts",
+    "*.config.ts"
   ],
   "exclude": [
     "node_modules",

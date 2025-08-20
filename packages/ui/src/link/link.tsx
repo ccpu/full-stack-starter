@@ -13,36 +13,44 @@ export interface LinkProps {
   };
 }
 
-export function Link ({ ref, href, children, className, target, hrefAttrs, ...props }: LinkProps & { ref?: React.RefObject<React.ElementRef<typeof Pressable> | null> }) {
-    if (Platform.OS === 'web') {
-      return (
-        <NextLink
-          href={href}
-          ref={ref as React.Ref<HTMLAnchorElement>}
-          className={className}
-          target={target}
-          {...hrefAttrs}
-          {...props}
-        >
-          {children}
-        </NextLink>
-      );
-    }
-
+export function Link({
+  ref,
+  href,
+  children,
+  className,
+  target,
+  hrefAttrs,
+  ...props
+}: LinkProps & { ref?: React.RefObject<React.ElementRef<typeof Pressable> | null> }) {
+  if (Platform.OS === 'web') {
     return (
-      <Pressable
-        ref={ref}
+      <NextLink
+        href={href}
+        ref={ref as React.Ref<HTMLAnchorElement>}
         className={className}
-        onPress={() => router.push(href as Parameters<typeof router.push>[0])}
+        target={target}
+        {...hrefAttrs}
         {...props}
       >
-        {typeof children === 'string' ? (
-          <Text className={className}>{children}</Text>
-        ) : (
-          children
-        )}
-      </Pressable>
+        {children}
+      </NextLink>
     );
   }
+
+  return (
+    <Pressable
+      ref={ref}
+      className={className}
+      onPress={() => router.push(href as Parameters<typeof router.push>[0])}
+      {...props}
+    >
+      {typeof children === 'string' ? (
+        <Text className={className}>{children}</Text>
+      ) : (
+        children
+      )}
+    </Pressable>
+  );
+}
 
 Link.displayName = 'Link';

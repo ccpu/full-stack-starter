@@ -1,40 +1,12 @@
 import defineConfig from '@pixpilot/eslint-config';
 import turboPlugin from 'eslint-plugin-turbo';
-import tseslint from 'typescript-eslint';
-
-/**
- * All packages that leverage t3-env should use this rule
- */
-export const restrictEnvAccess = tseslint.config(
-  { ignores: ['**/env.ts'] },
-  {
-    files: ['**/*.js', '**/*.ts', '**/*.tsx'],
-    rules: {
-      'no-restricted-properties': [
-        'error',
-        {
-          object: 'process',
-          property: 'env',
-          message: "Use `import { env } from '~/env'` instead to ensure validated types.",
-        },
-      ],
-      'no-restricted-imports': [
-        'error',
-        {
-          name: 'process',
-          importNames: ['env'],
-          message: "Use `import { env } from '~/env'` instead to ensure validated types.",
-        },
-      ],
-    },
-  },
-);
+import commonConfig from './common.mjs';
 
 // eslint-disable-next-line antfu/no-top-level-await
 const baseConfig = await defineConfig(
-  { 
-    type: 'app', 
-    turbo: true, 
+  {
+    type: 'app',
+    turbo: true,
     test: true,
     typescript: {
       parserOptions: {
@@ -59,10 +31,11 @@ const baseConfig = await defineConfig(
       ],
     },
   },
+  ...commonConfig,
 );
 
 /**
  * All packages that leverage t3-env should use this rule
  */
 /** @type {Awaited<import('typescript-eslint').Config>} */
-export default [...baseConfig, ...restrictEnvAccess];
+export default baseConfig;
