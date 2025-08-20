@@ -11,8 +11,11 @@
  * - Host: process.env.HOST || "localhost"
  */
 
-const http = require('http');
+const http = require('node:http');
+const process = require('node:process');
 const config = require('../config/defaults.cjs');
+
+const { STATUS_OK } = http;
 
 const options = {
   hostname: config.server.host,
@@ -23,8 +26,7 @@ const options = {
 };
 
 const healthCheck = http.request(options, (res) => {
-  console.log(`Health check status: ${res.statusCode}`);
-  if (res.statusCode === 200) {
+  if (res.statusCode === STATUS_OK) {
     process.exit(0);
   } else {
     process.exit(1);

@@ -9,8 +9,9 @@
  * with only external dependencies for production installation.
  */
 
-const fs = require('fs');
-const path = require('path');
+const fs = require('node:fs');
+const path = require('node:path');
+const process = require('node:process');
 
 /**
  * Recursively finds all package.json files in a directory, excluding node_modules
@@ -134,7 +135,8 @@ function createProdPackage() {
 
     // Write the production package.json (without workspace configuration)
     const outputPath = path.join(__dirname, '..', 'package.json');
-    fs.writeFileSync(outputPath, JSON.stringify(prodPkg, null, 2));
+    const JSON_INDENT = 2;
+    fs.writeFileSync(outputPath, JSON.stringify(prodPkg, null, JSON_INDENT));
 
     console.log('Production package.json created successfully');
     console.log(`Total dependencies: ${Object.keys(prodPkg.dependencies).length}`);

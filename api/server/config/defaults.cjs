@@ -1,3 +1,4 @@
+/* eslint-disable node/prefer-global/process */
 // ╔══════════════════════════════════════════════════════════════════════╗
 // ║ ⚠️  WARNING: No secrets should be added to this file!               ║
 // ║      This file is ONLY for basic configs.                            ║
@@ -13,15 +14,15 @@ module.exports = {
   },
 
   // Helper functions
-  getPort: function () {
+  getPort() {
     return process.env.PORT ?? this.server.port;
   },
 
-  getHost: function () {
+  getHost() {
     return process.env.HOST ?? this.server.host;
   },
 
-  getFullHealthPath: function () {
+  getFullHealthPath() {
     return `${this.server.basePrefix}${this.health.path}`;
   },
 };
