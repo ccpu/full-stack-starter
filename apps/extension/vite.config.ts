@@ -1,4 +1,4 @@
-import * as path from 'path';
+import * as path from 'node:path';
 import { crx } from '@crxjs/vite-plugin';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
@@ -32,7 +32,7 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       react({
-        include: /\.(t|j)sx?$|\.mjs$/,
+        include: /\.(?:tsx?|jsx?|mjs)$/u,
         jsxImportSource: 'nativewind',
         babel: {
           presets: ['nativewind/babel'],

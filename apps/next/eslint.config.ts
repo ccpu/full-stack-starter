@@ -1,7 +1,7 @@
+import type { Config } from 'typescript-eslint';
 import baseConfig, { restrictEnvAccess } from '@internal/eslint-config/base';
 import nextjsConfig from '@internal/eslint-config/nextjs';
 import reactConfig from '@internal/eslint-config/react';
-import { Config } from 'typescript-eslint';
 
 const config: Config = [
   {

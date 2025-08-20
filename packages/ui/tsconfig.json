@@ -14,7 +14,8 @@
   },
   "include": [
     "src",
-    "index.ts"
+    "index.ts",
+    "*.config.{ts,js,mjs,cjs}"
   ],
   "exclude": [
     "node_modules"

@@ -1,6 +1,6 @@
+import type { HealthCheckService, MemoryHealthIndicator } from '@nestjs/terminus';
 import { Controller, Get, ServiceUnavailableException } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { HealthCheckService, MemoryHealthIndicator } from '@nestjs/terminus';
 import { Throttle } from '@nestjs/throttler';
 
 // eslint-disable-next-line no-magic-numbers

@@ -17,7 +17,8 @@
   },
   "include": [
     "src",
-    "src/nativewind-env.d.ts"
+    "src/nativewind-env.d.ts",
+    "*.config.{ts,js,mjs,cjs}"
   ],
   "exclude": [
     "node_modules",

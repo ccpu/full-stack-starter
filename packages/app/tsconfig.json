@@ -5,6 +5,6 @@
     "lib": ["ES2022", "dom", "dom.iterable"],
     "rootDir": "."
   },
-  "include": ["src", "index.ts"],
+  "include": ["src", "index.ts", "*.config.{ts,js,mjs,cjs}"],
   "exclude": ["node_modules"]
 }

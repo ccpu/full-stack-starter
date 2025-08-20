@@ -20,7 +20,9 @@
     "*.js",
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
-    "nativewind-env.d.ts"
+    "nativewind-env.d.ts",
+    "metro.config.js",
+    "tailwind.config.ts"
   ],
   "exclude": [
     "node_modules"
