@@ -12,7 +12,8 @@
     "build": "tsc",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
     "dev": "tsc",
-    "format": "prettier --check . --ignore-path $(git rev-parse --show-toplevel)/.gitignore --ignore-path $(git rev-parse --show-toplevel)/.prettierignore",
+    "format": "prettier --check . --ignore-path ../../../.gitignore --ignore-path ../../../.prettierignore",
+    "format:fix": "prettier --write . --ignore-path ../../../.gitignore --ignore-path ../../../.prettierignore",
     "lint": "eslint",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
