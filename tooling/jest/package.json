@@ -12,7 +12,7 @@
     "clean": "rimraf dist",
     "typecheck": "tsc --noEmit",
     "lint": "eslint",
-    "format": "prettier --check . --ignore-path $(pnpm root -w)/.prettierignore --ignore-path $(pnpm root -w)/.gitignore"
+    "format": "prettier --check . --ignore-path $(git rev-parse --show-toplevel)/.gitignore --ignore-path $(git rev-parse --show-toplevel)/.prettierignore"
   },
   "devDependencies": {
     "@internal/eslint-config": "workspace:*",

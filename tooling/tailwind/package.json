@@ -12,7 +12,7 @@
   },
   "scripts": {
     "clean": "git clean -xdf .cache .turbo node_modules",
-    "format": "prettier --check . --ignore-path $(pnpm root -w)/.prettierignore --ignore-path $(pnpm root -w)/.gitignore",
+    "format": "prettier --check . --ignore-path $(git rev-parse --show-toplevel)/.gitignore --ignore-path $(git rev-parse --show-toplevel)/.prettierignore",
     "lint": "eslint",
     "typecheck": "tsc --noEmit"
   },
