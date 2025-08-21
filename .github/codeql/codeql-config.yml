@@ -1,9 +1,9 @@
 name: CodeQL Configuration
 
 paths:
-  - api/*/src
-  - packages/*/src
-  - apps/*/src
+  - api
+  - packages
+  - apps
 
 paths-ignore:
   - test

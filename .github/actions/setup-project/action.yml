@@ -15,7 +15,7 @@ inputs:
   build:
     description: Whether to run the build step
     required: false
-    default: 'true'
+    default: 'false'
 
 runs:
   using: composite
@@ -37,7 +37,6 @@ runs:
       shell: bash
 
     - name: Install Turbo CLI
-      if: ${{ inputs.build == 'true' }}
       run: pnpm add -g turbo
       shell: bash
 
