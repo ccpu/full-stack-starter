@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "build": "tsc --project tsconfig.json",
-    "format": "prettier --check . --ignore-path $(git rev-parse --show-toplevel)/.gitignore --ignore-path $(git rev-parse --show-toplevel)/.prettierignore"
+    "format": "prettier --check . --ignore-path $(pnpm root -w)/.prettierignore --ignore-path $(pnpm root -w)/.gitignore"
   },
   "dependencies": {
     "clsx": "^2.1.1",

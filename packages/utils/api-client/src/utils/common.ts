@@ -35,7 +35,7 @@ export function getPackageJson(packageName: string): PackageJsonConfig {
       clean: 'git clean -xdf .cache .turbo dist node_modules',
       dev: 'tsc',
       format:
-        'prettier --check . --ignore-path $(git rev-parse --show-toplevel)/.gitignore --ignore-path $(git rev-parse --show-toplevel)/.prettierignore',
+        'prettier --check . --ignore-path $(pnpm root -w)/.prettierignore --ignore-path $(pnpm root -w)/.gitignore',
       lint: 'eslint',
       typecheck: 'tsc --noEmit --emitDeclarationOnly false',
     },
