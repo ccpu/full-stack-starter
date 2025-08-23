@@ -14,7 +14,7 @@
     "build": "tsc --outDir dist --declaration --emitDeclarationOnly false"
   },
   "peerDependencies": {
-    "react": "catalog:"
+    "react": "catalog:dev"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
@@ -25,12 +25,12 @@
     "@internal/prettier-config": "workspace:*",
     "@internal/tailwind-config": "workspace:*",
     "@internal/tsconfig": "workspace:*",
-    "@pixpilot/dev-config": "catalog:",
-    "@types/react": "catalog:",
-    "eslint": "catalog:",
-    "prettier": "catalog:",
-    "react": "catalog:",
-    "typescript": "catalog:"
+    "@pixpilot/dev-config": "catalog:dev",
+    "@types/react": "catalog:dev",
+    "eslint": "catalog:dev",
+    "prettier": "catalog:dev",
+    "react": "catalog:prod",
+    "typescript": "catalog:dev"
   },
   "prettier": "@internal/prettier-config"
 }

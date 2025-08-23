@@ -5,7 +5,7 @@ settings:
   excludeLinksFromLockfile: false
 
 catalogs:
-  default:
+  dev:
     '@babel/core':
       specifier: ^7.28.3
       version: 7.28.3
@@ -30,21 +30,12 @@ catalogs:
     jest:
       specifier: ^30.0.5
       version: 30.0.5
-    nativewind:
-      specifier: ~4.1.23
-      version: 4.1.23
     postcss:
       specifier: ^8.5.6
       version: 8.5.6
     prettier:
       specifier: ^3.6.2
       version: 3.6.2
-    react:
-      specifier: 19.0.0
-      version: 19.0.0
-    react-dom:
-      specifier: 19.0.0
-      version: 19.0.0
     tailwindcss:
       specifier: ^3.4.17
       version: 3.4.17
@@ -54,6 +45,16 @@ catalogs:
     typescript:
       specifier: ^5.9.2
       version: 5.9.2
+  prod:
+    nativewind:
+      specifier: ~4.1.23
+      version: 4.1.23
+    react:
+      specifier: 19.0.0
+      version: 19.0.0
+    react-dom:
+      specifier: 19.0.0
+      version: 19.0.0
     zod:
       specifier: ^4.0.17
       version: 4.0.17
@@ -63,7 +64,7 @@ importers:
   .:
     devDependencies:
       '@babel/core':
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 7.28.3
       '@commitlint/cli':
         specifier: ^19.8.1
@@ -84,7 +85,7 @@ importers:
         specifier: ^16.1.5
         version: 16.1.5
       prettier:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 3.6.2
       tsx:
         specifier: ^4.20.4
@@ -93,7 +94,7 @@ importers:
         specifier: ^2.5.6
         version: 2.5.6
       typescript:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 5.9.2
 
   api/client:
@@ -112,13 +113,13 @@ importers:
         specifier: workspace:*
         version: link:../../tooling/typescript
       eslint:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 9.33.0(jiti@2.5.1)
       prettier:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 3.6.2
       typescript:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 5.9.2
 
   api/server:
@@ -181,23 +182,17 @@ importers:
       '@nestjs/testing':
         specifier: ^11.1.6
         version: 11.1.6(@nestjs/common@11.1.6(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.6)(@nestjs/platform-express@11.1.6)
-      '@swc/cli':
-        specifier: ^0.7.8
-        version: 0.7.8(@swc/core@1.13.3)(chokidar@4.0.3)
-      '@swc/core':
-        specifier: ^1.13.3
-        version: 1.13.3
       '@types/node':
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 22.17.2
       '@types/supertest':
         specifier: ^6.0.3
         version: 6.0.3
       eslint:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 9.33.0(jiti@2.5.1)
       prettier:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 3.6.2
       source-map-support:
         specifier: ^0.5.21
@@ -209,7 +204,7 @@ importers:
         specifier: ^4.2.0
         version: 4.2.0
       typescript:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 5.9.2
 
   apps/expo:
@@ -227,13 +222,13 @@ importers:
         specifier: ~2.2.3
         version: 2.2.3(react-native@0.79.3(@babel/core@7.28.3)(@types/react@19.1.10)(react@19.0.0))(react@19.0.0)
       nativewind:
-        specifier: 'catalog:'
+        specifier: catalog:prod
         version: 4.1.23(react-native-reanimated@4.0.2(@babel/core@7.28.3)(react-native-worklets@0.4.1(@babel/core@7.28.3)(react-native@0.79.3(@babel/core@7.28.3)(@types/react@19.1.10)(react@19.0.0))(react@19.0.0))(react-native@0.79.3(@babel/core@7.28.3)(@types/react@19.1.10)(react@19.0.0))(react@19.0.0))(react-native-safe-area-context@5.4.1(react-native@0.79.3(@babel/core@7.28.3)(@types/react@19.1.10)(react@19.0.0))(react@19.0.0))(react-native@0.79.3(@babel/core@7.28.3)(@types/react@19.1.10)(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.13.3)(@types/node@24.0.3)(typescript@5.9.2)))
       react:
-        specifier: 'catalog:'
+        specifier: catalog:prod
         version: 19.0.0
       react-dom:
-        specifier: 'catalog:'
+        specifier: catalog:prod
         version: 19.0.0(react@19.0.0)
       react-native:
         specifier: 0.79.3
@@ -261,19 +256,19 @@ importers:
         specifier: workspace:*
         version: link:../../tooling/typescript
       '@types/react':
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 19.1.10
       eslint:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 9.33.0(jiti@2.5.1)
       prettier:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 3.6.2
       tailwindcss:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 3.4.17(ts-node@10.9.2(@swc/core@1.13.3)(@types/node@24.0.3)(typescript@5.9.2))
       typescript:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 5.9.2
 
   apps/extension:
@@ -285,20 +280,20 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
       nativewind:
-        specifier: 'catalog:'
+        specifier: catalog:prod
         version: 4.1.23(react-native-reanimated@4.0.2(@babel/core@7.28.3)(react-native-worklets@0.4.1(@babel/core@7.28.3)(react-native@0.79.3(@babel/core@7.28.3)(@types/react@19.1.10)(react@19.0.0))(react@19.0.0))(react-native@0.79.3(@babel/core@7.28.3)(@types/react@19.1.10)(react@19.0.0))(react@19.0.0))(react-native-safe-area-context@5.4.1(react-native@0.79.3(@babel/core@7.28.3)(@types/react@19.1.10)(react@19.0.0))(react@19.0.0))(react-native@0.79.3(@babel/core@7.28.3)(@types/react@19.1.10)(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.13.3)(@types/node@24.0.3)(typescript@5.9.2)))
       react:
-        specifier: 'catalog:'
+        specifier: catalog:prod
         version: 19.0.0
       react-dom:
-        specifier: 'catalog:'
+        specifier: catalog:prod
         version: 19.0.0(react@19.0.0)
       vite-plugin-react-native-web:
         specifier: ^2.2.1
         version: 2.2.1
     devDependencies:
       '@babel/core':
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 7.28.3
       '@crxjs/vite-plugin':
         specifier: ^2.1.0
@@ -322,10 +317,10 @@ importers:
         specifier: ^0.1.4
         version: 0.1.4
       '@types/react':
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 19.1.10
       '@types/react-dom':
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 19.1.7(@types/react@19.1.10)
       '@types/react-native-web':
         specifier: ^0.19.2
@@ -337,7 +332,7 @@ importers:
         specifier: ^10.4.21
         version: 10.4.21(postcss@8.5.6)
       eslint:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 9.33.0(jiti@2.5.1)
       gulp:
         specifier: ^5.0.1
@@ -346,16 +341,16 @@ importers:
         specifier: ^6.1.0
         version: 6.1.0(gulp@5.0.1)
       postcss:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 8.5.6
       prettier:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 3.6.2
       tailwindcss:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 3.4.17(ts-node@10.9.2(@swc/core@1.13.3)(@types/node@24.0.3)(typescript@5.9.2))
       typescript:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 5.9.2
       vite:
         specifier: ^7.1.2
@@ -382,13 +377,13 @@ importers:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       react:
-        specifier: 'catalog:'
+        specifier: catalog:prod
         version: 19.0.0
       react-dom:
-        specifier: 'catalog:'
+        specifier: catalog:prod
         version: 19.0.0(react@19.0.0)
       zod:
-        specifier: 'catalog:'
+        specifier: catalog:prod
         version: 4.0.17
     devDependencies:
       '@internal/eslint-config':
@@ -404,13 +399,13 @@ importers:
         specifier: workspace:*
         version: link:../../tooling/typescript
       '@types/node':
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 22.17.2
       '@types/react':
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 19.1.10
       '@types/react-dom':
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 19.1.7(@types/react@19.1.10)
       autoprefixer:
         specifier: ^10.4.21
@@ -422,13 +417,13 @@ importers:
         specifier: ^2.5.1
         version: 2.5.1
       prettier:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 3.6.2
       tailwindcss:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 3.4.17(ts-node@10.9.2(@swc/core@1.13.3)(@types/node@22.17.2)(typescript@5.9.2))
       typescript:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 5.9.2
 
   packages/app:
@@ -449,19 +444,19 @@ importers:
         specifier: workspace:*
         version: link:../ui
       '@types/react':
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 19.1.10
       eslint:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 9.33.0(jiti@2.5.1)
       prettier:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 3.6.2
       react:
-        specifier: 'catalog:'
+        specifier: catalog:prod
         version: 19.0.0
       typescript:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 5.9.2
 
   packages/ui:
@@ -486,22 +481,22 @@ importers:
         specifier: workspace:*
         version: link:../../tooling/typescript
       '@pixpilot/dev-config':
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 3.1.1(prettier@3.6.2)(typescript@5.9.2)
       '@types/react':
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 19.1.10
       eslint:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 9.33.0(jiti@2.5.1)
       prettier:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 3.6.2
       react:
-        specifier: 'catalog:'
+        specifier: catalog:prod
         version: 19.0.0
       typescript:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 5.9.2
 
   packages/utils/api-client:
@@ -529,13 +524,13 @@ importers:
         specifier: workspace:*
         version: link:../../../tooling/typescript
       eslint:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 9.33.0(jiti@2.5.1)
       prettier:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 3.6.2
       typescript:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 5.9.2
 
   packages/utils/common:
@@ -550,13 +545,13 @@ importers:
         specifier: workspace:*
         version: link:../../../tooling/typescript
       eslint:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 9.33.0(jiti@2.5.1)
       prettier:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 3.6.2
       typescript:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 5.9.2
 
   packages/utils/tailwind:
@@ -578,13 +573,13 @@ importers:
         specifier: workspace:*
         version: link:../../../tooling/typescript
       eslint:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 9.33.0(jiti@2.5.1)
       prettier:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 3.6.2
       typescript:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 5.9.2
 
   tooling/eslint:
@@ -615,13 +610,13 @@ importers:
         specifier: workspace:*
         version: link:../typescript
       eslint:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 9.33.0(jiti@2.5.1)
       prettier:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 3.6.2
       typescript:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 5.9.2
 
   tooling/jest:
@@ -636,25 +631,25 @@ importers:
         specifier: workspace:*
         version: link:../typescript
       '@pixpilot/dev-config':
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 3.1.1(prettier@3.6.2)(typescript@5.9.2)
       '@types/jest':
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 30.0.0
       '@types/node':
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 22.17.2
       jest:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 30.0.5(@types/node@22.17.2)(ts-node@10.9.2(@swc/core@1.13.3)(@types/node@22.17.2)(typescript@5.9.2))
       ts-jest:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 29.4.1(@babel/core@7.28.3)(@jest/transform@30.0.5)(@jest/types@30.0.5)(babel-jest@30.0.5(@babel/core@7.28.3))(jest-util@30.0.5)(jest@30.0.5(@types/node@22.17.2)(ts-node@10.9.2(@swc/core@1.13.3)(@types/node@22.17.2)(typescript@5.9.2)))(typescript@5.9.2)
 
   tooling/prettier:
     dependencies:
       prettier:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 3.6.2
       prettier-plugin-tailwindcss:
         specifier: ^0.6.14
@@ -664,22 +659,22 @@ importers:
         specifier: workspace:*
         version: link:../typescript
       '@pixpilot/dev-config':
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 3.1.1(prettier@3.6.2)(typescript@5.9.2)
       '@types/node':
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 22.17.2
       typescript:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 5.9.2
 
   tooling/tailwind:
     dependencies:
       postcss:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 8.5.6
       tailwindcss:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 3.4.17(ts-node@10.9.2(@swc/core@1.13.3)(@types/node@22.17.2)(typescript@5.9.2))
       tailwindcss-animate:
         specifier: ^1.0.7
@@ -692,22 +687,22 @@ importers:
         specifier: '*'
         version: link:../typescript
       '@types/node':
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 22.17.2
       eslint:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 9.33.0(jiti@2.5.1)
       prettier:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 3.6.2
       typescript:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 5.9.2
 
   tooling/typescript:
     devDependencies:
       '@pixpilot/dev-config':
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 3.1.1(prettier@3.6.2)(typescript@5.9.2)
 
 packages:
@@ -11346,7 +11341,7 @@ snapshots:
       '@jest/schemas': 29.6.3
       '@types/istanbul-lib-coverage': 2.0.6
       '@types/istanbul-reports': 3.0.4
-      '@types/node': 22.17.2
+      '@types/node': 24.0.3
       '@types/yargs': 17.0.33
       chalk: 4.1.2
 
@@ -12140,7 +12135,8 @@ snapshots:
 
   '@sinclair/typebox@0.34.39': {}
 
-  '@sindresorhus/is@5.6.0': {}
+  '@sindresorhus/is@5.6.0':
+    optional: true
 
   '@sinonjs/commons@3.0.1':
     dependencies:
@@ -12178,6 +12174,7 @@ snapshots:
       tinyglobby: 0.2.14
     optionalDependencies:
       chokidar: 4.0.3
+    optional: true
 
   '@swc/core-darwin-arm64@1.13.3':
     optional: true
@@ -12224,6 +12221,7 @@ snapshots:
       '@swc/core-win32-arm64-msvc': 1.13.3
       '@swc/core-win32-ia32-msvc': 1.13.3
       '@swc/core-win32-x64-msvc': 1.13.3
+    optional: true
 
   '@swc/counter@0.1.3': {}
 
@@ -12234,10 +12232,12 @@ snapshots:
   '@swc/types@0.1.23':
     dependencies:
       '@swc/counter': 0.1.3
+    optional: true
 
   '@szmarczak/http-timer@5.0.1':
     dependencies:
       defer-to-connect: 2.0.1
+    optional: true
 
   '@t3-oss/env-core@0.13.8(typescript@5.9.2)(zod@4.0.17)':
     optionalDependencies:
@@ -12342,7 +12342,8 @@ snapshots:
 
   '@types/har-format@1.2.16': {}
 
-  '@types/http-cache-semantics@4.0.4': {}
+  '@types/http-cache-semantics@4.0.4':
+    optional: true
 
   '@types/istanbul-lib-coverage@2.0.6': {}
 
@@ -12405,7 +12406,7 @@ snapshots:
     dependencies:
       '@types/cookiejar': 2.1.5
       '@types/methods': 1.1.4
-      '@types/node': 22.17.2
+      '@types/node': 24.0.3
       form-data: 4.0.3
 
   '@types/supertest@6.0.3':
@@ -12748,11 +12749,13 @@ snapshots:
   '@xhmikosr/archive-type@7.0.0':
     dependencies:
       file-type: 19.6.0
+    optional: true
 
   '@xhmikosr/bin-check@7.0.3':
     dependencies:
       execa: 5.1.1
       isexe: 2.0.0
+    optional: true
 
   '@xhmikosr/bin-wrapper@13.0.5':
     dependencies:
@@ -12760,12 +12763,14 @@ snapshots:
       '@xhmikosr/downloader': 15.0.1
       '@xhmikosr/os-filter-obj': 3.0.0
       bin-version-check: 5.1.0
+    optional: true
 
   '@xhmikosr/decompress-tar@8.0.1':
     dependencies:
       file-type: 19.6.0
       is-stream: 2.0.1
       tar-stream: 3.1.7
+    optional: true
 
   '@xhmikosr/decompress-tarbz2@8.0.2':
     dependencies:
@@ -12774,18 +12779,21 @@ snapshots:
       is-stream: 2.0.1
       seek-bzip: 2.0.0
       unbzip2-stream: 1.4.3
+    optional: true
 
   '@xhmikosr/decompress-targz@8.0.1':
     dependencies:
       '@xhmikosr/decompress-tar': 8.0.1
       file-type: 19.6.0
       is-stream: 2.0.1
+    optional: true
 
   '@xhmikosr/decompress-unzip@7.0.0':
     dependencies:
       file-type: 19.6.0
       get-stream: 6.0.1
       yauzl: 3.2.0
+    optional: true
 
   '@xhmikosr/decompress@10.0.1':
     dependencies:
@@ -12796,6 +12804,7 @@ snapshots:
       graceful-fs: 4.2.11
       make-dir: 4.0.0
       strip-dirs: 3.0.0
+    optional: true
 
   '@xhmikosr/downloader@15.0.1':
     dependencies:
@@ -12808,10 +12817,12 @@ snapshots:
       filenamify: 6.0.0
       get-stream: 6.0.1
       got: 13.0.0
+    optional: true
 
   '@xhmikosr/os-filter-obj@3.0.0':
     dependencies:
       arch: 3.0.0
+    optional: true
 
   '@xmldom/xmldom@0.8.10': {}
 
@@ -12934,7 +12945,8 @@ snapshots:
 
   append-field@1.0.0: {}
 
-  arch@3.0.0: {}
+  arch@3.0.0:
+    optional: true
 
   are-docs-informative@0.0.2: {}
 
@@ -13223,11 +13235,13 @@ snapshots:
       bin-version: 6.0.0
       semver: 7.7.2
       semver-truncate: 3.0.0
+    optional: true
 
   bin-version@6.0.0:
     dependencies:
       execa: 5.1.1
       find-versions: 5.1.0
+    optional: true
 
   binary-extensions@2.3.0: {}
 
@@ -13319,7 +13333,8 @@ snapshots:
     dependencies:
       node-int64: 0.4.0
 
-  buffer-crc32@0.2.13: {}
+  buffer-crc32@0.2.13:
+    optional: true
 
   buffer-crc32@1.0.0: {}
 
@@ -13345,7 +13360,8 @@ snapshots:
 
   cac@6.7.14: {}
 
-  cacheable-lookup@7.0.0: {}
+  cacheable-lookup@7.0.0:
+    optional: true
 
   cacheable-request@10.2.14:
     dependencies:
@@ -13356,6 +13372,7 @@ snapshots:
       mimic-response: 4.0.0
       normalize-url: 8.0.2
       responselike: 3.0.0
+    optional: true
 
   call-bind-apply-helpers@1.0.2:
     dependencies:
@@ -13599,7 +13616,8 @@ snapshots:
 
   commander@4.1.1: {}
 
-  commander@6.2.1: {}
+  commander@6.2.1:
+    optional: true
 
   commander@7.2.0: {}
 
@@ -13827,6 +13845,7 @@ snapshots:
   decompress-response@6.0.0:
     dependencies:
       mimic-response: 3.1.0
+    optional: true
 
   dedent@1.6.0: {}
 
@@ -13840,9 +13859,11 @@ snapshots:
     dependencies:
       clone: 1.0.4
 
-  defaults@3.0.0: {}
+  defaults@3.0.0:
+    optional: true
 
-  defer-to-connect@2.0.1: {}
+  defer-to-connect@2.0.1:
+    optional: true
 
   define-data-property@1.1.4:
     dependencies:
@@ -14761,11 +14782,13 @@ snapshots:
   ext-list@2.2.2:
     dependencies:
       mime-db: 1.54.0
+    optional: true
 
   ext-name@5.0.0:
     dependencies:
       ext-list: 2.2.2
       sort-keys-length: 1.0.1
+    optional: true
 
   extend@3.0.2: {}
 
@@ -14910,6 +14933,7 @@ snapshots:
       strtok3: 9.1.1
       token-types: 6.0.0
       uint8array-extras: 1.4.0
+    optional: true
 
   file-type@21.0.0:
     dependencies:
@@ -14920,11 +14944,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  filename-reserved-regex@3.0.0: {}
+  filename-reserved-regex@3.0.0:
+    optional: true
 
   filenamify@6.0.0:
     dependencies:
       filename-reserved-regex: 3.0.0
+    optional: true
 
   fill-range@7.1.1:
     dependencies:
@@ -14982,6 +15008,7 @@ snapshots:
   find-versions@5.1.0:
     dependencies:
       semver-regex: 4.0.5
+    optional: true
 
   findup-sync@5.0.0:
     dependencies:
@@ -15049,7 +15076,8 @@ snapshots:
       typescript: 5.8.3
       webpack: 5.100.2(@swc/core@1.13.3)
 
-  form-data-encoder@2.1.4: {}
+  form-data-encoder@2.1.4:
+    optional: true
 
   form-data@4.0.3:
     dependencies:
@@ -15274,6 +15302,7 @@ snapshots:
       lowercase-keys: 3.0.0
       p-cancelable: 3.0.0
       responselike: 3.0.0
+    optional: true
 
   graceful-fs@4.2.11: {}
 
@@ -15390,7 +15419,8 @@ snapshots:
       domutils: 3.2.2
       entities: 6.0.1
 
-  http-cache-semantics@4.2.0: {}
+  http-cache-semantics@4.2.0:
+    optional: true
 
   http-errors@2.0.0:
     dependencies:
@@ -15404,6 +15434,7 @@ snapshots:
     dependencies:
       quick-lru: 5.1.1
       resolve-alpn: 1.2.1
+    optional: true
 
   https-proxy-agent@7.0.6:
     dependencies:
@@ -15477,6 +15508,7 @@ snapshots:
   inspect-with-kind@1.0.5:
     dependencies:
       kind-of: 6.0.3
+    optional: true
 
   internal-slot@1.1.0:
     dependencies:
@@ -15620,7 +15652,8 @@ snapshots:
 
   is-obj@2.0.0: {}
 
-  is-plain-obj@1.1.0: {}
+  is-plain-obj@1.1.0:
+    optional: true
 
   is-plain-object@5.0.0: {}
 
@@ -16195,7 +16228,7 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 22.17.2
+      '@types/node': 24.0.3
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
@@ -16322,7 +16355,8 @@ snapshots:
     dependencies:
       json-buffer: 3.0.1
 
-  kind-of@6.0.3: {}
+  kind-of@6.0.3:
+    optional: true
 
   kleur@3.0.3: {}
 
@@ -16561,7 +16595,8 @@ snapshots:
     dependencies:
       js-tokens: 4.0.0
 
-  lowercase-keys@3.0.0: {}
+  lowercase-keys@3.0.0:
+    optional: true
 
   lru-cache@10.4.3: {}
 
@@ -17190,9 +17225,11 @@ snapshots:
 
   mimic-function@5.0.1: {}
 
-  mimic-response@3.1.0: {}
+  mimic-response@3.1.0:
+    optional: true
 
-  mimic-response@4.0.0: {}
+  mimic-response@4.0.0:
+    optional: true
 
   min-indent@1.0.1: {}
 
@@ -17341,7 +17378,8 @@ snapshots:
 
   normalize-range@0.1.2: {}
 
-  normalize-url@8.0.2: {}
+  normalize-url@8.0.2:
+    optional: true
 
   now-and-later@3.0.0:
     dependencies:
@@ -17487,7 +17525,8 @@ snapshots:
       object-keys: 1.1.1
       safe-push-apply: 1.0.0
 
-  p-cancelable@3.0.0: {}
+  p-cancelable@3.0.0:
+    optional: true
 
   p-limit@2.3.0:
     dependencies:
@@ -17612,9 +17651,11 @@ snapshots:
 
   pathe@2.0.3: {}
 
-  peek-readable@5.4.2: {}
+  peek-readable@5.4.2:
+    optional: true
 
-  pend@1.2.0: {}
+  pend@1.2.0:
+    optional: true
 
   picocolors@1.1.1: {}
 
@@ -17659,6 +17700,7 @@ snapshots:
   piscina@4.9.2:
     optionalDependencies:
       '@napi-rs/nice': 1.0.1
+    optional: true
 
   pkg-dir@4.2.0:
     dependencies:
@@ -17829,7 +17871,8 @@ snapshots:
 
   quick-format-unescaped@4.0.4: {}
 
-  quick-lru@5.1.1: {}
+  quick-lru@5.1.1:
+    optional: true
 
   randombytes@2.1.0:
     dependencies:
@@ -18113,7 +18156,8 @@ snapshots:
       rc: 1.2.8
       resolve: 1.7.1
 
-  resolve-alpn@1.2.1: {}
+  resolve-alpn@1.2.1:
+    optional: true
 
   resolve-cwd@3.0.0:
     dependencies:
@@ -18153,6 +18197,7 @@ snapshots:
   responselike@3.0.0:
     dependencies:
       lowercase-keys: 3.0.0
+    optional: true
 
   restore-cursor@2.0.0:
     dependencies:
@@ -18304,16 +18349,19 @@ snapshots:
   seek-bzip@2.0.0:
     dependencies:
       commander: 6.2.1
+    optional: true
 
   semver-greatest-satisfied-range@2.0.0:
     dependencies:
       sver: 1.8.4
 
-  semver-regex@4.0.5: {}
+  semver-regex@4.0.5:
+    optional: true
 
   semver-truncate@3.0.0:
     dependencies:
       semver: 7.7.2
+    optional: true
 
   semver@6.3.1: {}
 
@@ -18533,10 +18581,12 @@ snapshots:
   sort-keys-length@1.0.1:
     dependencies:
       sort-keys: 1.1.2
+    optional: true
 
   sort-keys@1.1.2:
     dependencies:
       is-plain-obj: 1.1.0
+    optional: true
 
   source-map-js@1.2.1: {}
 
@@ -18691,6 +18741,7 @@ snapshots:
     dependencies:
       inspect-with-kind: 1.0.5
       is-plain-obj: 1.1.0
+    optional: true
 
   strip-final-newline@2.0.0: {}
 
@@ -18710,6 +18761,7 @@ snapshots:
     dependencies:
       '@tokenizer/token': 0.3.0
       peek-readable: 5.4.2
+    optional: true
 
   structured-headers@0.4.1: {}
 
@@ -18853,6 +18905,7 @@ snapshots:
       b4a: 1.6.7
       fast-fifo: 1.3.2
       streamx: 2.22.1
+    optional: true
 
   tar@7.4.3:
     dependencies:
@@ -19183,6 +19236,7 @@ snapshots:
     dependencies:
       buffer: 5.7.1
       through: 2.3.8
+    optional: true
 
   unc-path-regex@0.1.2: {}
 
@@ -19611,6 +19665,7 @@ snapshots:
     dependencies:
       buffer-crc32: 0.2.13
       pend: 1.2.0
+    optional: true
 
   yazl@3.3.1:
     dependencies:

@@ -46,9 +46,9 @@ export function getPackageJson(packageName: string): PackageJsonConfig {
       '@internal/eslint-config': 'workspace:*',
       '@internal/prettier-config': 'workspace:*',
       '@internal/tsconfig': 'workspace:*',
-      eslint: 'catalog:',
-      prettier: 'catalog:',
-      typescript: 'catalog:',
+      eslint: 'catalog:dev',
+      prettier: 'catalog:dev',
+      typescript: 'catalog:dev',
     },
     prettier: '@internal/prettier-config',
   };

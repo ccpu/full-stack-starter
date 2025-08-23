@@ -18,11 +18,11 @@
     "@internal/eslint-config": "workspace:*",
     "@internal/prettier-config": "workspace:*",
     "@internal/tsconfig": "workspace:*",
-    "@pixpilot/dev-config": "catalog:",
-    "@types/jest": "catalog:",
-    "@types/node": "catalog:",
-    "jest": "catalog:",
-    "ts-jest": "catalog:"
+    "@pixpilot/dev-config": "catalog:dev",
+    "@types/jest": "catalog:dev",
+    "@types/node": "catalog:dev",
+    "jest": "catalog:dev",
+    "ts-jest": "catalog:dev"
   },
   "prettier": "@internal/prettier-config"
 }
