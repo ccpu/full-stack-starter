@@ -39,7 +39,8 @@
     "clean:workspaces:install": "pnpm clean:workspaces && pnpm install",
     "deps:update": "npx taze -r -w && pnpm install",
     "deps:update:major": "npx taze major -r -w && pnpm install",
-    "turbo:gen:init": "pnpm turbo gen init"
+    "turbo:gen:init": "pnpm turbo gen init",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@babel/core": "catalog:",
