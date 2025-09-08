@@ -31,17 +31,17 @@
   },
   "devDependencies": {
     "@babel/core": "catalog:dev",
-    "@crxjs/vite-plugin": "^2.1.0",
+    "@crxjs/vite-plugin": "^2.2.0",
     "@internal/eslint-config": "workspace:*",
     "@internal/prettier-config": "workspace:*",
     "@internal/tailwind-config": "workspace:*",
     "@internal/tsconfig": "workspace:*",
     "@internal/ui": "workspace:*",
-    "@types/chrome": "^0.1.4",
+    "@types/chrome": "^0.1.9",
     "@types/react": "catalog:dev",
     "@types/react-dom": "catalog:dev",
     "@types/react-native-web": "^0.19.2",
-    "@vitejs/plugin-react": "^5.0.0",
+    "@vitejs/plugin-react": "^5.0.2",
     "autoprefixer": "^10.4.21",
     "eslint": "catalog:dev",
     "gulp": "^5.0.1",
@@ -50,7 +50,7 @@
     "prettier": "catalog:dev",
     "tailwindcss": "catalog:dev",
     "typescript": "catalog:dev",
-    "vite": "^7.1.2"
+    "vite": "^7.1.5"
   },
   "prettier": "@internal/prettier-config"
 }
