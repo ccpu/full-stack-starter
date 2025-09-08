@@ -17,8 +17,8 @@
   },
   "dependencies": {
     "@internal/app": "workspace:*",
-    "expo": "^53.0.20",
-    "expo-router": "5.1.0",
+    "expo": "^53.0.22",
+    "expo-router": "5.1.4",
     "expo-status-bar": "~2.2.3",
     "nativewind": "catalog:prod",
     "react": "catalog:prod",
@@ -28,7 +28,7 @@
     "react-native-safe-area-context": "5.4.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.3",
+    "@babel/core": "^7.28.4",
     "@internal/eslint-config": "workspace:*",
     "@internal/prettier-config": "workspace:*",
     "@internal/tailwind-config": "workspace:*",
