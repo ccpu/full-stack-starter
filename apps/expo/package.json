@@ -23,7 +23,7 @@
     "nativewind": "catalog:prod",
     "react": "catalog:prod",
     "react-dom": "catalog:prod",
-    "react-native": "0.79.3",
+    "react-native": "0.81.4",
     "react-native-reanimated": "~4.0.2",
     "react-native-safe-area-context": "5.4.1"
   },
