@@ -11,7 +11,8 @@
     "./theme.web.css": "./theme.web.css"
   },
   "scripts": {
-    "clean": "git clean -xdf .cache .turbo node_modules",
+    "clean": "git clean -xdf .cache .turbo dist",
+    "clean:all": "git clean -xdf .cache .turbo dist node_modules",
     "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore",
     "lint": "eslint",
     "typecheck": "tsc --noEmit"
@@ -23,7 +24,7 @@
   },
   "devDependencies": {
     "@internal/eslint-config": "workspace:*",
-    "@internal/tsconfig": "*",
+    "@internal/tsconfig": "workspace:*",
     "@types/node": "catalog:dev",
     "eslint": "catalog:dev",
     "prettier": "catalog:dev",

@@ -684,7 +684,7 @@ importers:
         specifier: workspace:*
         version: link:../eslint
       '@internal/tsconfig':
-        specifier: '*'
+        specifier: workspace:*
         version: link:../typescript
       '@types/node':
         specifier: catalog:dev

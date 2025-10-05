@@ -9,7 +9,8 @@
   "exports": "./index.js",
   "scripts": {
     "prepublishOnly": "pnpm run clean && pnpm run build",
-    "clean": "rimraf dist",
+    "clean": "git clean -xdf .cache .turbo dist",
+    "clean:all": "git clean -xdf .cache .turbo dist node_modules",
     "typecheck": "tsc --noEmit",
     "lint": "eslint",
     "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
