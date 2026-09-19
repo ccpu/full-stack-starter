@@ -17,18 +17,18 @@
   },
   "dependencies": {
     "@internal/app": "workspace:*",
-    "expo": "^53.0.20",
+    "expo": "^53.0.27",
     "expo-router": "5.1.0",
     "expo-status-bar": "~2.2.3",
     "nativewind": "catalog:prod",
     "react": "catalog:prod",
     "react-dom": "catalog:prod",
     "react-native": "0.79.3",
-    "react-native-reanimated": "~4.0.2",
+    "react-native-reanimated": "~4.0.3",
     "react-native-safe-area-context": "5.4.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.3",
+    "@babel/core": "^7.29.7",
     "@internal/eslint-config": "workspace:*",
     "@internal/prettier-config": "workspace:*",
     "@internal/tailwind-config": "workspace:*",

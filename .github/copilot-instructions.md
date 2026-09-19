@@ -15,8 +15,8 @@ If a user reports TypeScript errors related to `className` props in React Native
      "extends": [
        "@internal/tsconfig/internal-package.json",
        "@internal/tsconfig/nativewind.json"
-     ]
-     // rest of config...
+     ],
+     "compilerOptions": {}
    }
    ```
 3. Restart the TypeScript server if changes don't take effect immediately.
