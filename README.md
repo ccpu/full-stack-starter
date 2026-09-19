@@ -28,13 +28,18 @@ npm install -g pnpm
 ### 🏁 Getting Started
 
 ```bash
-# Install dependencies
-pnpm install
+# Initialize the template for your project (installs dependencies too)
+pnpm run setup
 
 # Start development servers
 pnpm native          # Start Expo dev server
 pnpm web           # Start Next.js dev server
 ```
+
+`pnpm run setup` is a one-time step. Until it has run, `pnpm install` prints a
+reminder and `git commit` is blocked. Setup ends by deleting the `setup/` folder,
+so the gate removes itself. It is skipped in CI, in this template repo itself, and
+with `SKIP_SETUP_CHECK=1`.
 
 ### 🏷️ Package Naming Convention
 
