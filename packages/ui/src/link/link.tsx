@@ -26,7 +26,7 @@ export function Link({
     return (
       <NextLink
         href={href}
-        ref={ref as React.Ref<HTMLAnchorElement>}
+        ref={ref as unknown as React.Ref<HTMLAnchorElement>}
         className={className}
         target={target}
         {...hrefAttrs}
@@ -41,7 +41,7 @@ export function Link({
     <Pressable
       ref={ref}
       className={className}
-      onPress={() => router.push(href as Parameters<typeof router.push>[0])}
+      onPress={() => router.push(href)}
       {...props}
     >
       {typeof children === 'string' ? (

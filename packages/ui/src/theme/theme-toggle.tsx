@@ -13,7 +13,6 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
 
   // Wait until after hydration to avoid mismatch
   useEffect(() => {
-    // eslint-disable-next-line react-hooks-extra/no-direct-set-state-in-use-effect
     setMounted(true);
   }, []);
 

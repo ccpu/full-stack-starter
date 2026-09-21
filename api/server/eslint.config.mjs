@@ -4,7 +4,7 @@ import baseConfig from '@internal/eslint-config/base';
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
-/** @type {import('typescript-eslint').Config} */
+/** @type {import('eslint').Linter.Config[]} */
 const config = [
   ...baseConfig,
   {

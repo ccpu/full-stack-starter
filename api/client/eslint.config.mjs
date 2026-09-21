@@ -1,6 +1,6 @@
 import baseConfig from '@internal/eslint-config/base';
 
-/** @type {import('typescript-eslint').Config} */
+/** @type {import('eslint').Linter.Config[]} */
 const config = [
   ...baseConfig,
   {

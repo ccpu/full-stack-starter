@@ -85,10 +85,7 @@ export function generateClientApi(srcSwaggerJsonFile: string, force = false): vo
     if (!file.endsWith('configuration.ts') && !file.endsWith('Extended.ts')) {
       const fullPath = path.join(clientApiDir, file);
       const data = fs.readFileSync(fullPath).toString();
-      fs.writeFileSync(
-        fullPath,
-        `/* eslint-disable @typescript-eslint/ban-ts-comment */\n// @ts-nocheck\n${data}`,
-      );
+      fs.writeFileSync(fullPath, `// @ts-nocheck\n${data}`);
     }
   });
 
@@ -111,7 +108,7 @@ export function generateClientApi(srcSwaggerJsonFile: string, force = false): vo
   // Create ESLint config
   const eslintConfigContent = `import baseConfig from "@internal/eslint-config/base";
 
-/** @type {import('typescript-eslint').Config} */
+/** @type {import('eslint').Linter.Config[]} */
 export default [
   {
     ignores: ["dist/**"],

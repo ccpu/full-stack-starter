@@ -1,4 +1,4 @@
-/* eslint-disable react-hooks-extra/no-unnecessary-use-prefix */
+/* eslint-disable react/no-unnecessary-use-prefix */
 // Stub for expo-router during development
 // This prevents Vite from trying to process the actual expo-router files
 

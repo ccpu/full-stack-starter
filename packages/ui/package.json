@@ -14,7 +14,7 @@
     "build": "tsc --outDir dist --declaration --emitDeclarationOnly false"
   },
   "peerDependencies": {
-    "react": "catalog:dev"
+    "react": "catalog:prod"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",

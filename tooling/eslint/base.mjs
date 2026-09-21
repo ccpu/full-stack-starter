@@ -21,7 +21,7 @@ const baseConfig = await defineConfig(
       turbo: turboPlugin,
     },
     rules: {
-      ...turboPlugin.configs.recommended.rules,
+      'turbo/no-undeclared-env-vars': 'error',
       'no-restricted-imports': [
         'error',
         {
@@ -37,5 +37,5 @@ const baseConfig = await defineConfig(
 /**
  * All packages that leverage t3-env should use this rule
  */
-/** @type {Awaited<import('typescript-eslint').Config>} */
+/** @type {Awaited<import('eslint').Linter.Config[]>} */
 export default baseConfig;
