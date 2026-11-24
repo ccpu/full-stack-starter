@@ -88,5 +88,5 @@ This extension demonstrates how to:
 ## Notes
 
 - The extension uses regular Tailwind CSS instead of NativeWind since it runs in a browser environment
-- Shared components from `@internal/ui` that depend on React Native are not compatible with browser extensions
+- Shared components from `@internal/universal-ui` that depend on React Native are not compatible with browser extensions
 - Chrome extension APIs are properly typed and available throughout the codebase

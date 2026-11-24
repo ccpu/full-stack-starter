@@ -7,7 +7,7 @@ export default {
   // those classes are included correctly.
   content: [
     ...baseConfig.content,
-    '../../packages/ui/src/**/*.{ts,tsx}',
+    '../../packages/universal-ui/src/**/*.{ts,tsx}',
     '../../packages/app/src/**/*.{ts,tsx}',
   ],
   presets: [baseConfig],

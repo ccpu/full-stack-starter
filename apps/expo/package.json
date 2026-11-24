@@ -17,27 +17,42 @@
   },
   "dependencies": {
     "@internal/app": "workspace:*",
-    "expo": "^53.0.27",
-    "expo-router": "5.1.0",
-    "expo-status-bar": "~2.2.3",
+    "expo": "catalog:expo",
+    "expo-constants": "catalog:expo",
+    "expo-linking": "catalog:expo",
+    "expo-router": "catalog:expo",
+    "expo-status-bar": "catalog:expo",
     "nativewind": "catalog:prod",
     "react": "catalog:prod",
     "react-dom": "catalog:prod",
-    "react-native": "0.79.3",
-    "react-native-reanimated": "~4.0.3",
-    "react-native-safe-area-context": "5.4.1"
+    "react-native": "catalog:expo",
+    "react-native-css-interop": "catalog:prod",
+    "react-native-reanimated": "catalog:expo",
+    "react-native-safe-area-context": "catalog:expo",
+    "react-native-screens": "catalog:expo",
+    "react-native-worklets": "catalog:expo"
   },
   "devDependencies": {
-    "@babel/core": "^7.29.7",
+    "@babel/core": "catalog:dev",
+    "@babel/plugin-transform-react-jsx": "catalog:dev",
     "@internal/eslint-config": "workspace:*",
     "@internal/prettier-config": "workspace:*",
     "@internal/tailwind-config": "workspace:*",
     "@internal/tsconfig": "workspace:*",
     "@types/react": "catalog:dev",
+    "babel-preset-expo": "catalog:expo",
     "eslint": "catalog:dev",
+    "metro-cache": "catalog:expo",
     "prettier": "catalog:dev",
     "tailwindcss": "catalog:dev",
     "typescript": "catalog:dev"
   },
-  "prettier": "@internal/prettier-config"
+  "prettier": "@internal/prettier-config",
+  "expo": {
+    "install": {
+      "exclude": [
+        "@types/react"
+      ]
+    }
+  }
 }

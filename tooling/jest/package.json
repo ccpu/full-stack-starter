@@ -22,6 +22,7 @@
     "@pixpilot/dev-config": "catalog:dev",
     "@types/jest": "catalog:dev",
     "@types/node": "catalog:dev",
+    "eslint": "catalog:dev",
     "jest": "catalog:dev",
     "ts-jest": "catalog:dev"
   },

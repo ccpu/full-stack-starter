@@ -1,4 +1,4 @@
-import { ThemeProvider } from '@internal/ui';
+import { ThemeProvider } from '@internal/universal-ui';
 
 import React from 'react';
 import '../global.css';

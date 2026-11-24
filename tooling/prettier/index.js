@@ -7,7 +7,8 @@ import prettierConfig from '@pixpilot/dev-config/prettier';
 /** @type { PrettierConfig  | TailwindConfig } */
 const config = {
   ...prettierConfig,
-  plugins: ['prettier-plugin-tailwindcss'],
+  // Resolved here: with isolated installs a package's Prettier cannot see this package's plugins.
+  plugins: [fileURLToPath(import.meta.resolve('prettier-plugin-tailwindcss'))],
   tailwindConfig: fileURLToPath(
     new URL('../../tooling/tailwind/web.ts', import.meta.url),
   ),

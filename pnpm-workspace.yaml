@@ -1,7 +1,7 @@
 packages:
   - apps/*
   - packages/app
-  - packages/ui
+  - packages/universal-ui
   - packages/utils/*
   - tooling/*
   - api/*
@@ -9,6 +9,7 @@ packages:
 catalogs:
   dev:
     '@babel/core': ^7.29.7
+    '@babel/plugin-transform-react-jsx': ^7.27.1
     '@pixpilot/dev-config': ^3.22.0
     '@types/jest': ^30.0.0
     '@types/node': ^22.20.4
@@ -22,10 +23,32 @@ catalogs:
     tailwindcss: ^3.4.19
     ts-jest: ^29.4.12
     typescript: ^5.9.3
+  # Expo SDK 54: the versions `expo install --check` expects.
+  expo:
+    babel-preset-expo: ~54.0.12
+    expo: ~54.0.38
+    expo-constants: ~18.0.14
+    expo-linking: ~8.0.12
+    expo-router: ~6.0.24
+    expo-status-bar: ~3.0.9
+    metro-cache: ~0.83.3
+    react-native: 0.81.5
+    react-native-reanimated: ~4.1.1
+    react-native-safe-area-context: ~5.6.0
+    react-native-screens: ~4.16.0
+    react-native-worklets: 0.5.1
+  next:
+    next: 15.3.3
+    next-themes: ^0.4.6
   prod:
-    react: 19.0.0
-    react-dom: 19.0.0
-    nativewind: ~4.1.23
+    class-variance-authority: ^0.7.1
+    react: 19.1.0
+    react-dom: 19.1.0
+    nativewind: ~4.2.7
+    # NativeWind's JSX runtime: each app that renders with NativeWind needs it.
+    react-native-css-interop: 0.2.7
+    react-native-web: ^0.21.0
+    tailwind-merge: ^3.7.0
     zod: ^4.6.5
 
 onlyBuiltDependencies:
