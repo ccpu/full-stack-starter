@@ -5,7 +5,6 @@
   ],
   "compilerOptions": {
     "jsx": "react-native",
-    "baseUrl": ".",
     "moduleSuffixes": [
       ".ios",
       ".android",
