@@ -26,6 +26,7 @@
     "@internal/eslint-config": "workspace:*",
     "@internal/prettier-config": "workspace:*",
     "@internal/tsconfig": "workspace:*",
+    "@types/node": "catalog:dev",
     "eslint": "catalog:dev",
     "prettier": "catalog:dev",
     "typescript": "catalog:dev"
